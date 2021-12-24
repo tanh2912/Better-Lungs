@@ -225,7 +225,7 @@ class DataConstants {
       minutes: TextConstants.armsMinutes,
       currentProgress: 1,
       progress: 20,
-      image: PathConstants.cardio,
+      image: PathConstants.arms,
       exerciseDataList: [
         ExerciseData(
           title: TextConstants.nangvai,

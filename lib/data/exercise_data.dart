@@ -12,7 +12,7 @@ class ExerciseData {
     required this.progress,
     required this.video,
     required this.description,
-    required this.steps,
+    required this.steps, 
   });
 
   @override
