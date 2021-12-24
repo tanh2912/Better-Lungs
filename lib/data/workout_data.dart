@@ -1,4 +1,4 @@
-import 'package:fitness_flutter/data/exercise_data.dart';
+import 'exercise_data.dart';
 
 class WorkoutData {
   final String title;

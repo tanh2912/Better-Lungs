@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
-
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
@@ -13,12 +11,14 @@ class ExercisesList extends StatelessWidget {
   final WorkoutData workout;
   final List<ExerciseData> exercises;
 
-  const ExercisesList({required this.exercises, required this.workout});
+  const ExercisesList(
+      {Key? key, required this.exercises, required this.workout})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 10),
       itemCount: exercises.length,
       itemBuilder: (context, index) {
         return ExerciseCell(
@@ -41,10 +41,11 @@ class ExerciseCell extends StatelessWidget {
   final ExerciseData? nextExercise;
 
   const ExerciseCell({
+    Key? key,
     required this.currentExercise,
     required this.workout,
     required this.nextExercise,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +116,7 @@ class ExerciseCell extends StatelessWidget {
       children: [
         Text(
           currentExercise.title,
-          style: TextStyle(
+          style: const TextStyle(
             color: ColorConstants.textColor,
             fontSize: 16,
             fontWeight: FontWeight.w700,
@@ -123,7 +124,7 @@ class ExerciseCell extends StatelessWidget {
         ),
         Text(
           minutesStr,
-          style: TextStyle(
+          style: const TextStyle(
             color: ColorConstants.textBlack,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -145,7 +146,7 @@ class ExerciseCell extends StatelessWidget {
   }
 
   Widget _createRightArrow() {
-    return RotatedBox(
+    return const RotatedBox(
       quarterTurns: 2,
       child: Image(
         image: AssetImage(PathConstants.back),

@@ -81,7 +81,8 @@ class WorkoutDetailsPanel extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ExercisesList(
-            exercises: workout.exerciseDataList, workout: workout),
+            exercises: workout.exerciseDataList,
+                   workout: workout),
       ),
     );
   }
