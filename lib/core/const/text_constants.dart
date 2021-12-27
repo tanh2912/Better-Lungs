@@ -49,6 +49,7 @@ class TextConstants {
   // Tab bar
   static const String homeIcon = "Trang chủ";
   static const String workoutsIcon = "Bài tập";
+  static const String newsIcon = "Thông tin";
   static const String settingsIcon = "Tài khoản";
 
   // Home screen
@@ -150,26 +151,21 @@ class TextConstants {
   // Start Workout screen -> reclining : thở chúm môi
   static const String recliningDescription =
       "Giúp cải thiện tình trạng khó thở";
-  static const String recliningStep1 =
-      "Hít vào thật sâu, từ từ bằng mũi.";
+  static const String recliningStep1 = "Hít vào thật sâu, từ từ bằng mũi.";
   static const String recliningStep2 =
       "Chúm môi từ từ, thở ra cho đến khi hết khả năng.";
 
   // Start Workout screen -> CowPose: thở cơ hoành
-  static const String cowPoseDescription =
-      "Giúp cải thiện tình trạng khó thở";
+  static const String cowPoseDescription = "Giúp cải thiện tình trạng khó thở";
   static const String cowPoseStep1 =
       "Hít vào từ từ bằng mũi, đồng thời bụng phình lên.";
-  static const String cowPoseStep2 =
-      "Thở ra chúm môi, đồng thời bụng hóp lại.";
+  static const String cowPoseStep2 = "Thở ra chúm môi, đồng thời bụng hóp lại.";
 
- // Start Workout screen -> WarriorPoseII: thở bụng
-  static const String warriorDescription =
-      "Giúp cải thiện tình trạng khó thở";
+  // Start Workout screen -> WarriorPoseII: thở bụng
+  static const String warriorDescription = "Giúp cải thiện tình trạng khó thở";
   static const String warriorStep1 =
       "Một tay đặt lên ngực, một tay đặt lên bụng.";
-  static const String warriorStep2 =
-      "Hít vào bằng mũi, bụng phình ra.";
+  static const String warriorStep2 = "Hít vào bằng mũi, bụng phình ra.";
   static const String warriorStep3 =
       "Thở ra từ từ bằng miệng, môi chúm lại, bụng xẹp xuống.";
   static const String warriorStep4 =
@@ -198,21 +194,20 @@ class TextConstants {
   // Start Workout screen -> nangvai: Nâng vai
   static const String nangvaiDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
-  static const String nangvaiStep1 =
-      "Đưa cánh tay qua đầu (giữ khuỷu thẳng).";
+  static const String nangvaiStep1 = "Đưa cánh tay qua đầu (giữ khuỷu thẳng).";
   // Start Workout screen -> gapduoikhuyutay: Gập duỗi khuỷu tay
   static const String gapduoikhuyutayDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
   static const String gapduoikhuyutayStep1 =
       "Cánh tay áp sát thân mình, gập khuỷu tay sau đó duỗi thẳng ra.";
-      
-    // Start Workout screen -> gapxoaycochan: Gấp, xoay cổ chân
+
+  // Start Workout screen -> gapxoaycochan: Gấp, xoay cổ chân
   static const String gapxoaycochanDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
   static const String gapxoaycochanStep1 =
-      "Gấp, duỗi cổ chân, xoay cổ chân cùng và ngược chiều kim đồng hồ.";    
-  
-    // Start Workout screen -> coduoichan: Co, duỗi chân
+      "Gấp, duỗi cổ chân, xoay cổ chân cùng và ngược chiều kim đồng hồ.";
+
+  // Start Workout screen -> coduoichan: Co, duỗi chân
   static const String coduoichanDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
   static const String coduoichanStep1 =
@@ -221,14 +216,13 @@ class TextConstants {
   // Start Workout screen -> dangchan: Dạng chân
   static const String dangchanDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
-  static const String dangchanStep1 =
-      "Kéo chân dạng ra ngoài, sau đó kéo vào.";
+  static const String dangchanStep1 = "Kéo chân dạng ra ngoài, sau đó kéo vào.";
 
   // Start Workout screen -> nangchan: Nâng chân
   static const String nangchanDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
   static const String nangchanStep1 =
-      "Nằm ngửa co 1 chân, nâng cao chân còn lại, giữ lưng áp sát giường để tránh đau lưng.";      
+      "Nằm ngửa co 1 chân, nâng cao chân còn lại, giữ lưng áp sát giường để tránh đau lưng.";
   // Reminder screen
   static const String selectTime = "Chọn thời gian nhắc nhở";
   static const String save = "Hoàn tất";

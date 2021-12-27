@@ -3,10 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/service/notification_service.dart';
+import 'package:fitness_flutter/screens/news/bloc/news_bloc.dart';
+import 'package:fitness_flutter/screens/news/bloc/news_state.dart';
+import 'package:fitness_flutter/screens/news/page/news_page.dart';
 import 'package:fitness_flutter/screens/onboarding/page/onboarding_page.dart';
 import 'package:fitness_flutter/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -26,22 +30,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       NotificationService.flutterLocalNotificationsPlugin;
-
-  @override
-  initState() {
-    super.initState();
-    const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('app_icon');
-    final InitializationSettings initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid);
-
-    tz.initializeTimeZones();
-
-    flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onSelectNotification: selectNotification);
-  }
 
   @override
   Widget build(BuildContext context) {

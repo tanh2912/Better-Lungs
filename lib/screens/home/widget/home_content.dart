@@ -27,7 +27,7 @@ class HomeContent extends StatelessWidget {
       child: _createHomeBody(context),
     );
   }
-
+  
   Widget _createHomeBody(BuildContext context) {
     return SafeArea(
       child: ListView(

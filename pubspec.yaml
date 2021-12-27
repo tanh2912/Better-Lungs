@@ -35,6 +35,8 @@ dependencies:
   firebase_storage: ^10.2.0
   cloud_firestore: ^3.1.4
 
+  equatable: ^2.0.3
+
 
   # IOS Icons
   cupertino_icons: ^1.0.4

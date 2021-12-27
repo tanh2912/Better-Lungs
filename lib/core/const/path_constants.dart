@@ -11,6 +11,7 @@ class PathConstants {
   static const String home = 'assets/icons/home/home_icon.png';
   static const String workouts = 'assets/icons/home/workouts_icon.png';
   static const String settings = 'assets/icons/home/settings_icon.png';
+  static const String news = 'assets/icons/home/news_icon.png';
 
   // Home
   static const String profile = 'assets/images/home/profile.png';
@@ -30,7 +31,8 @@ class PathConstants {
 
   static const String recliningImage = 'assets/images/exercises/reclining.png';
   static const String cowPoseImage = 'assets/images/exercises/cowPose.png';
-  static const String warriorPoseImage = 'assets/images/exercises/warriorPose.png';
+  static const String warriorPoseImage =
+      'assets/images/exercises/warriorPose.png';
   static const String hohuuhieuImage = 'assets/images/exercises/hohuuhieu.png';
   static const String thochukychudongImage =
       'assets/images/exercises/thochukychudong.png';
@@ -39,7 +41,8 @@ class PathConstants {
       'assets/images/exercises/gapxoaycochan.png';
   static const String gapduoikhuyutayImage =
       'assets/images/exercises/gapduoikhuyutay.png';
-  static const String coduoichanImage = 'assets/images/exercises/coduoichan.png';
+  static const String coduoichanImage =
+      'assets/images/exercises/coduoichan.png';
   static const String dangchanImage = 'assets/images/exercises/dangchan.png';
   static const String nangchanImage = 'assets/images/exercises/nangchan.png';
 
