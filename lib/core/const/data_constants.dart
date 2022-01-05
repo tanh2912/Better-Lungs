@@ -29,14 +29,14 @@ class DataConstants {
     WorkoutData(
         title: TextConstants.yogaTitle,
         exercices: TextConstants.yogaExercises,
-        minutes: TextConstants.yogaMinutes,
+        seconds: TextConstants.yogaSeconds,
         currentProgress: 10,
         progress: 16,
         image: PathConstants.yoga,
         exerciseDataList: [
           ExerciseData(
             title: TextConstants.reclining,
-            minutes: TextConstants.recliningMinutes,
+            seconds: TextConstants.recliningSeconds,
             image: PathConstants.recliningImage,
             progress: 1,
             video: PathConstants.recliningVideo,
@@ -48,7 +48,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.cowPose,
-            minutes: TextConstants.cowPoseMinutes,
+            seconds: TextConstants.cowPoseSeconds,
             image: PathConstants.cowPoseImage,
             progress: 0.3,
             video: PathConstants.cowPoseVideo,
@@ -57,7 +57,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.warriorPose,
-            minutes: TextConstants.warriorPoseMinutes,
+            seconds: TextConstants.warriorPoseSeconds,
             image: PathConstants.warriorPoseImage,
             progress: 0.99,
             video: PathConstants.warriorIIVideo,
@@ -71,7 +71,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.hohuuhieu,
-            minutes: TextConstants.hohuuhieuMinutes,
+            seconds: TextConstants.hohuuhieuSeconds,
             image: PathConstants.hohuuhieuImage,
             progress: 0.3,
             video: PathConstants.hohuuhieuVideo,
@@ -84,7 +84,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.thochukychudong,
-            minutes: TextConstants.thochukychudongMinutes,
+            seconds: TextConstants.thochukychudongSeconds,
             image: PathConstants.thochukychudongImage,
             progress: 0.3,
             video: PathConstants.thochukychudongVideo,
@@ -99,14 +99,14 @@ class DataConstants {
     WorkoutData(
       title: TextConstants.fullBodyTitle,
       exercices: TextConstants.fullBodyExercises,
-      minutes: TextConstants.fullBodyMinutes,
+      seconds: TextConstants.fullBodySeconds,
       currentProgress: 12,
       progress: 14,
       image: PathConstants.fullBody,
       exerciseDataList: [
         ExerciseData(
           title: TextConstants.nangvai,
-          minutes: TextConstants.nangvaiMinutes,
+          seconds: TextConstants.nangvaiSeconds,
           image: PathConstants.nangvaiImage,
           progress: 0.99,
           video: PathConstants.nangvaiVideo,
@@ -117,7 +117,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.gapduoikhuyutay,
-          minutes: TextConstants.gapduoikhuyutayMinutes,
+          seconds: TextConstants.gapduoikhuyutaySeconds,
           image: PathConstants.gapduoikhuyutayImage,
           progress: 0.6,
           video: PathConstants.gapduoikhuyutayVideo,
@@ -126,7 +126,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.gapxoaycochan,
-          minutes: TextConstants.gapxoaycochanMinutes,
+          seconds: TextConstants.gapxoaycochanSeconds,
           image: PathConstants.gapxoaycochanImage,
           progress: 0.8,
           video: PathConstants.gapxoaycochanVideo,
@@ -135,7 +135,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.coduoichan,
-          minutes: TextConstants.coduoichanMinutes,
+          seconds: TextConstants.coduoichanSeconds,
           image: PathConstants.coduoichanImage,
           progress: 0.3,
           video: PathConstants.coduoichanVideo,
@@ -144,7 +144,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.dangchan,
-          minutes: TextConstants.dangchanMinutes,
+          seconds: TextConstants.dangchanSeconds,
           image: PathConstants.dangchanImage,
           progress: 0.3,
           video: PathConstants.dangchanVideo,
@@ -153,7 +153,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.nangchan,
-          minutes: TextConstants.nangchanMinutes,
+          seconds: TextConstants.nangchanSeconds,
           image: PathConstants.nangchanImage,
           progress: 0.3,
           video: PathConstants.nangchanVideo,
@@ -168,14 +168,14 @@ class DataConstants {
     WorkoutData(
         title: TextConstants.cardioTitle,
         exercices: TextConstants.cardioExercises,
-        minutes: TextConstants.cardioMinutes,
+        seconds: TextConstants.cardioSeconds,
         currentProgress: 10,
         progress: 16,
         image: PathConstants.cardio,
         exerciseDataList: [
           ExerciseData(
             title: TextConstants.reclining,
-            minutes: TextConstants.recliningMinutes,
+            seconds: TextConstants.recliningSeconds,
             image: PathConstants.recliningImage,
             progress: 1,
             video: PathConstants.recliningVideo,
@@ -187,7 +187,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.cowPose,
-            minutes: TextConstants.cowPoseMinutes,
+            seconds: TextConstants.cowPoseSeconds,
             image: PathConstants.cowPoseImage,
             progress: 0.3,
             video: PathConstants.cowPoseVideo,
@@ -196,7 +196,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.warriorPose,
-            minutes: TextConstants.warriorPoseMinutes,
+            seconds: TextConstants.warriorPoseSeconds,
             image: PathConstants.warriorPoseImage,
             progress: 0.99,
             video: PathConstants.warriorIIVideo,
@@ -210,7 +210,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.hohuuhieu,
-            minutes: TextConstants.hohuuhieuMinutes,
+            seconds: TextConstants.hohuuhieuSeconds,
             image: PathConstants.hohuuhieuImage,
             progress: 0.3,
             video: PathConstants.hohuuhieuVideo,
@@ -223,7 +223,7 @@ class DataConstants {
           ),
           ExerciseData(
             title: TextConstants.thochukychudong,
-            minutes: TextConstants.thochukychudongMinutes,
+            seconds: TextConstants.thochukychudongSeconds,
             image: PathConstants.thochukychudongImage,
             progress: 0.3,
             video: PathConstants.thochukychudongVideo,
@@ -238,14 +238,14 @@ class DataConstants {
     WorkoutData(
       title: TextConstants.armsTitle,
       exercices: TextConstants.armsExercises,
-      minutes: TextConstants.armsMinutes,
+      seconds: TextConstants.armsSeconds,
       currentProgress: 1,
       progress: 20,
       image: PathConstants.arms,
       exerciseDataList: [
         ExerciseData(
           title: TextConstants.nangvai,
-          minutes: TextConstants.nangvaiMinutes,
+          seconds: TextConstants.nangvaiSeconds,
           image: PathConstants.nangvaiImage,
           progress: 0.99,
           video: PathConstants.nangvaiVideo,
@@ -256,7 +256,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.gapduoikhuyutay,
-          minutes: TextConstants.gapduoikhuyutayMinutes,
+          seconds: TextConstants.gapduoikhuyutaySeconds,
           image: PathConstants.gapduoikhuyutayImage,
           progress: 0.6,
           video: PathConstants.gapduoikhuyutayVideo,
@@ -265,7 +265,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.gapxoaycochan,
-          minutes: TextConstants.gapxoaycochanMinutes,
+          seconds: TextConstants.gapxoaycochanSeconds,
           image: PathConstants.gapxoaycochanImage,
           progress: 0.8,
           video: PathConstants.gapxoaycochanVideo,
@@ -274,7 +274,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.coduoichan,
-          minutes: TextConstants.coduoichanMinutes,
+          seconds: TextConstants.coduoichanSeconds,
           image: PathConstants.coduoichanImage,
           progress: 0.3,
           video: PathConstants.coduoichanVideo,
@@ -283,7 +283,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.dangchan,
-          minutes: TextConstants.dangchanMinutes,
+          seconds: TextConstants.dangchanSeconds,
           image: PathConstants.dangchanImage,
           progress: 0.3,
           video: PathConstants.dangchanVideo,
@@ -292,7 +292,7 @@ class DataConstants {
         ),
         ExerciseData(
           title: TextConstants.nangchan,
-          minutes: TextConstants.nangchanMinutes,
+          seconds: TextConstants.nangchanSeconds,
           image: PathConstants.nangchanImage,
           progress: 0.3,
           video: PathConstants.nangchanVideo,

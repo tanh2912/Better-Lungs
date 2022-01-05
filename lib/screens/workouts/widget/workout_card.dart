@@ -66,7 +66,7 @@ class WorkoutCard extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2),
                           const SizedBox(height: 3),
-                          Text(workout.minutes + " " + TextConstants.minutes,
+                          Text(workout.seconds + " " + TextConstants.seconds,
                               style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,

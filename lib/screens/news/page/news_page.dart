@@ -13,7 +13,7 @@ class NewsPage extends StatefulWidget {
 
 class _NewsPageState extends State<NewsPage> {
   @override
-  Widget build(BuildContext context) {
+  Widget  build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Bloc News')),
       body: BlocBuilder<NewsBloc, NewsStates>(
@@ -46,7 +46,7 @@ class _NewsPageState extends State<NewsPage> {
                                   image: DecorationImage(
                                       image: NetworkImage(
                                         _articleList[index].urlToImage ??
-                                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojwMMYZgtiupM4Vzdb5iBeE4b0Mamf3AgrxQJR19Xa4oIWV5xun9a02Ggyh4bZAurP_c&usqp=CAU",
+                                            "https://encrypted-tbn0.gsta[tic.com/images?q=tbn:ANd9GcSojwMMYZgtiupM4Vzdb5iBeE4b0Mamf3AgrxQJR19Xa4oIWV5xun9a02Ggyh4bZAurP_c&usqp=CAU",
                                       ),
                                       fit: BoxFit.cover))),
                         ),

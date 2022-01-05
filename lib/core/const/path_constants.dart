@@ -13,6 +13,9 @@ class PathConstants {
   static const String settings = 'assets/icons/home/settings_icon.png';
   static const String news = 'assets/icons/home/news_icon.png';
 
+  // PDF Files
+  static const String quyetdinh = "assets/PDFfiles/quyetdinh.pdf";
+  static const String chamsoc = 'assets/PDFfiles/chamsoc.pdf';
   // Home
   static const String profile = 'assets/images/home/profile.png';
   static const String finished = 'assets/images/home/finished.png';

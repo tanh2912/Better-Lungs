@@ -110,7 +110,7 @@ class ExerciseCell extends StatelessWidget {
   }
 
   Widget _createExerciseTextInfo() {
-    final minutesStr = "${currentExercise.minutes} minutes";
+    final secondsStr = "${currentExercise.seconds} seconds";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -123,7 +123,7 @@ class ExerciseCell extends StatelessWidget {
           ),
         ),
         Text(
-          minutesStr,
+          secondsStr,
           style: const TextStyle(
             color: ColorConstants.textBlack,
             fontSize: 14,

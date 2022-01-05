@@ -59,7 +59,7 @@ class WorkoutCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "${workout.minutes} minutes",
+                      "${workout.seconds} seconds",
                       style: const TextStyle(
                         color: ColorConstants.white,
                         fontSize: 16,

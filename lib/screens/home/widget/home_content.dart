@@ -1,5 +1,4 @@
 // ignore_for_file: unnecessary_const
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/data_constants.dart';
@@ -27,7 +26,7 @@ class HomeContent extends StatelessWidget {
       child: _createHomeBody(context),
     );
   }
-  
+
   Widget _createHomeBody(BuildContext context) {
     return SafeArea(
       child: ListView(
@@ -40,6 +39,8 @@ class HomeContent extends StatelessWidget {
           _createExercisesList(context),
           const SizedBox(height: 25),
           _createProgress(),
+          _createPDFFiles(context),
+          const SizedBox(height: 25),
         ],
       ),
     );
@@ -52,7 +53,7 @@ class HomeContent extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: const Text(
-            TextConstants.discoverWorkouts,
+            TextConstants.pdfFiles,
             style: const TextStyle(
               color: ColorConstants.textBlack,
               fontSize: 18,
@@ -74,6 +75,44 @@ class HomeContent extends StatelessWidget {
                       builder: (_) => WorkoutDetailsPage(
                             workout: DataConstants.workouts[0],
                           )))),
+              const SizedBox(width: 15),
+              WorkoutCard(
+                  color: ColorConstants.armsColor,
+                  workout: DataConstants.homeWorkouts[1],
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => WorkoutDetailsPage(
+                            workout: DataConstants.workouts[1],
+                          )))),
+              const SizedBox(width: 20),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _createPDFFiles(BuildContext context) {
+   return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: const Text(
+            TextConstants.pdfFiles,
+            style: const TextStyle(
+              color: ColorConstants.textBlack,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const SizedBox(height: 15),
+        SizedBox(
+          height: 160,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              const SizedBox(width: 20),
               const SizedBox(width: 15),
               WorkoutCard(
                   color: ColorConstants.armsColor,

@@ -100,7 +100,7 @@ class HomeStatistics extends StatelessWidget {
           icon: PathConstants.timeSent,
           title: TextConstants.timeSent,
           count: 62,
-          text: TextConstants.minutes,
+          text: TextConstants.seconds,
         ),
       ],
     );
@@ -113,7 +113,8 @@ class DataWorkouts extends StatelessWidget {
   final int count;
   final String text;
 
-  const DataWorkouts({Key? key, 
+  const DataWorkouts({
+    Key? key,
     required this.icon,
     required this.title,
     required this.count,

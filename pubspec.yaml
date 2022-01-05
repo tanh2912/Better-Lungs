@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+    
   
   #BloC  
   flutter_bloc: ^7.1.0
@@ -76,6 +76,8 @@ dependencies:
 
   tiengviet: ^0.5.0
   flutter_secure_storage: ^5.0.2
+  pdf_render: ^1.0.19
+  flutter_cache_manager: ^3.3.0
   
 dev_dependencies:
   flutter_lints: ^1.0.4
@@ -97,6 +99,7 @@ flutter:
     - assets/icons/workouts/
     - assets/icons/social_networks/
     - assets/videos/workouts/
+    - assets/PDFfiles/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

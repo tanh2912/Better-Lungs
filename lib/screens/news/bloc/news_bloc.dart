@@ -4,10 +4,10 @@ import 'package:fitness_flutter/data/news_repository.dart';
 import 'news_event.dart';
 import 'news_state.dart';
 
-
 class NewsBloc extends Bloc<NewsEvents, NewsStates> {
   NewsRepository newsRepository;
-  NewsBloc({required NewsStates initialState, required this.newsRepository})
+  NewsBloc(newsinitialState,
+      {required NewsStates initialState, required this.newsRepository})
       : super(initialState) {
     add(StartEvent());
   }
