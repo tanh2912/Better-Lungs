@@ -56,7 +56,7 @@ class WorkoutCard extends StatelessWidget {
                                   fontSize: 18, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 3),
                           Text(
-                              workout.exercices +
+                              workout.exercises +
                                   " " +
                                   TextConstants.exercisesUppercase,
                               style: const TextStyle(
@@ -82,7 +82,7 @@ class WorkoutCard extends StatelessWidget {
                                 const EdgeInsets.only(right: 30.0, left: 2),
                             child: LinearPercentIndicator(
                               percent:
-                                  workout.currentProgress / workout.progress,
+                                  workout.currentProgress! / workout.progress,
                               progressColor: ColorConstants.primaryColor,
                               backgroundColor:
                                   ColorConstants.primaryColor.withOpacity(0.12),

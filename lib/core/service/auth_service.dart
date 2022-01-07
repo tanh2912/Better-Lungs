@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_flutter/core/extensions/exceptions.dart';
 
@@ -7,8 +5,7 @@ class AuthService {
   static final FirebaseAuth auth = FirebaseAuth.instance;
 
   static Future<User> signUp(String email, String password, String name) async {
-    UserCredential result = await auth.createUserWithEmailAndPassword(
-        email: email.trim(), password: password.trim());
+    UserCredential result = await auth.createUserWithEmailAndPassword(email: email.trim(), password: password.trim());
     final User user = result.user!;
     await user.updateDisplayName(name);
 
@@ -55,12 +52,12 @@ String getExceptionMessage(FirebaseAuthException e) {
   print(e.code);
   switch (e.code) {
     case 'user-not-found':
-      return 'Người dùng không tồn tại';
+      return 'User not found';
     case 'wrong-password':
-      return 'Sai mật khẩu';
+      return 'Password is incorrect';
     case 'requires-recent-login':
       return 'Log in again before retrying this request';
     default:
-      return e.message ?? 'Lỗi';
+      return e.message ?? 'Error';
   }
 }

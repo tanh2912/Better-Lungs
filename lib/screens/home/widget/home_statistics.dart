@@ -1,4 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
@@ -44,13 +46,13 @@ class HomeStatistics extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image(
+              const Image(
                 image: AssetImage(
                   PathConstants.finished,
                 ),
               ),
               const SizedBox(width: 10),
-              Expanded(
+              const Expanded(
                 child: Text(
                   TextConstants.finished,
                   style: TextStyle(
@@ -64,7 +66,7 @@ class HomeStatistics extends StatelessWidget {
               ),
             ],
           ),
-          Text(
+          const Text(
             '12',
             style: TextStyle(
               fontSize: 48,
@@ -72,7 +74,7 @@ class HomeStatistics extends StatelessWidget {
               color: ColorConstants.textBlack,
             ),
           ),
-          Text(
+          const Text(
             TextConstants.completedWorkouts,
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -92,20 +94,21 @@ class HomeStatistics extends StatelessWidget {
         DataWorkouts(
           icon: PathConstants.inProgress,
           title: TextConstants.inProgress,
-          count: 2,
+          count: 0,
           text: TextConstants.workouts,
         ),
         SizedBox(height: 20),
         DataWorkouts(
           icon: PathConstants.timeSent,
           title: TextConstants.timeSent,
-          count: 62,
+          count: 0,
           text: TextConstants.seconds,
         ),
       ],
     );
   }
 }
+
 
 class DataWorkouts extends StatelessWidget {
   final String icon;

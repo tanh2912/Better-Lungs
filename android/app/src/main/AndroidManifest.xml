@@ -2,6 +2,7 @@
     package="com.example.flutter_application">
    <application
         android:label="flutter_application"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -32,5 +33,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+          
     </application>
 </manifest>

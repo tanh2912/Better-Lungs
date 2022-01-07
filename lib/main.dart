@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
@@ -35,7 +34,7 @@ class _MyAppState extends State<MyApp> {
     final isLoggedIn = FirebaseAuth.instance.currentUser != null;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Fitness',
+      title: 'BetterLungs',
       theme: ThemeData(
         textTheme:
             TextTheme(bodyText1: TextStyle(color: ColorConstants.textColor)),

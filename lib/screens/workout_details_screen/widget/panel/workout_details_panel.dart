@@ -69,7 +69,7 @@ class WorkoutDetailsPanel extends StatelessWidget {
           const SizedBox(width: 15),
           WorkoutTag(
             icon: PathConstants.exerciseTracker,
-            content: "${workout.exercices} ${TextConstants.exercisesLowercase}",
+            content: "${workout.exercises} ${TextConstants.exercisesLowercase}",
           ),
         ],
       ),

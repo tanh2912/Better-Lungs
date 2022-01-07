@@ -28,7 +28,7 @@ class DataConstants {
   static final List<WorkoutData> workouts = [
     WorkoutData(
         title: TextConstants.yogaTitle,
-        exercices: TextConstants.yogaExercises,
+        exercises: TextConstants.yogaExercises,
         seconds: TextConstants.yogaSeconds,
         currentProgress: 10,
         progress: 16,
@@ -95,10 +95,10 @@ class DataConstants {
               TextConstants.thochukychudongStep3
             ],
           )
-        ]),
+        ], id: ''),
     WorkoutData(
       title: TextConstants.fullBodyTitle,
-      exercices: TextConstants.fullBodyExercises,
+      exercises: TextConstants.fullBodyExercises,
       seconds: TextConstants.fullBodySeconds,
       currentProgress: 12,
       progress: 14,
@@ -160,14 +160,14 @@ class DataConstants {
           description: TextConstants.nangchanDescription,
           steps: [TextConstants.nangchanStep1],
         ),
-      ],
+      ], id: '',
     )
   ];
 
   static final List<WorkoutData> homeWorkouts = [
     WorkoutData(
         title: TextConstants.cardioTitle,
-        exercices: TextConstants.cardioExercises,
+        exercises: TextConstants.cardioExercises,
         seconds: TextConstants.cardioSeconds,
         currentProgress: 10,
         progress: 16,
@@ -234,10 +234,10 @@ class DataConstants {
               TextConstants.thochukychudongStep3
             ],
           )
-        ]),
+        ], id: ''),
     WorkoutData(
       title: TextConstants.armsTitle,
-      exercices: TextConstants.armsExercises,
+      exercises: TextConstants.armsExercises,
       seconds: TextConstants.armsSeconds,
       currentProgress: 1,
       progress: 20,
@@ -299,7 +299,7 @@ class DataConstants {
           description: TextConstants.nangchanDescription,
           steps: [TextConstants.nangchanStep1],
         ),
-      ],
+      ], id: '',
     )
   ];
 
