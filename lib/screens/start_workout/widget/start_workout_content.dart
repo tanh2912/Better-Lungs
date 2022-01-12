@@ -3,23 +3,27 @@
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
+import 'package:fitness_flutter/core/service/data_service.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
+import 'package:fitness_flutter/data/workout_data.dart';
 import 'package:fitness_flutter/screens/common_widgets/fitness_button.dart';
 import 'package:fitness_flutter/screens/start_workout/bloc/start_workout_bloc.dart';
-import 'package:fitness_flutter/screens/start_workout/page/start_workout_page.dart';
 import 'package:fitness_flutter/screens/start_workout/widget/start_workout_video.dart';
-import 'package:fitness_flutter/screens/workout_details_screen/bloc/workoutdetails_bloc.dart'
+import 'package:fitness_flutter/screens/workout_details_screen/bloc/workout_details_bloc.dart'
     as workout_bloc;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StartWorkoutContent extends StatelessWidget {
+  final WorkoutData workout;
   final ExerciseData exercise;
   final ExerciseData? nextExercise;
 
-  const StartWorkoutContent(
-      {Key? key, required this.exercise, required this.nextExercise})
-      : super(key: key);
+   StartWorkoutContent({
+    required this.workout,
+    required this.exercise,
+    required this.nextExercise,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -177,38 +181,39 @@ class StartWorkoutContent extends StatelessWidget {
   }
 
   Widget _createButton(BuildContext context) {
+    final bloc = BlocProvider.of<workout_bloc.WorkoutDetailsBloc>(context);
     return FitnessButton(
-      title: nextExercise != null ? TextConstants.next : 'Finish',
-      onTap: () {
+      title: nextExercise != null ? TextConstants.next : TextConstants.finished,
+      onTap: () async {
         if (nextExercise != null) {
-          List<ExerciseData>? exercisesList =
-              BlocProvider.of<workout_bloc.WorkoutDetailsBloc>(context)
-                  .workout
-                  .exerciseDataList;
+          List<ExerciseData>? exercisesList = bloc.workout.exerciseDataList;
           int currentExerciseIndex = exercisesList.indexOf(exercise);
+
+          await _saveWorkout(currentExerciseIndex);
+
           if (currentExerciseIndex < exercisesList.length - 1) {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                  builder: (_) => BlocProvider.value(
-                        value: BlocProvider.of<workout_bloc.WorkoutDetailsBloc>(
-                            context),
-                        child: StartWorkoutPage(
-                          exercise: exercisesList[currentExerciseIndex + 1],
-                          currentExercise:
-                              exercisesList[currentExerciseIndex + 1],
-                          nextExercise:
-                              currentExerciseIndex + 2 < exercisesList.length
-                                  ? exercisesList[currentExerciseIndex + 2]
-                                  : null,
-                        ),
-                      )),
-            );
+            bloc.add(workout_bloc.StartTappedEvent(
+              workout: workout,
+              index: currentExerciseIndex + 1,
+              isReplace: true,
+            ));
           }
         } else {
-          Navigator.of(context).pop();
+          await _saveWorkout(workout.exerciseDataList.length - 1);
+
+          Navigator.pop(context, workout);
         }
       },
     );
+  }
+
+  Future<void> _saveWorkout(int exerciseIndex) async {
+    if (workout.currentProgress < exerciseIndex + 1) {
+      workout.currentProgress = exerciseIndex + 1;
+    }
+    workout.exerciseDataList[exerciseIndex].progress = 1;
+
+    await DataService.saveWorkout(workout);
   }
 }
 
@@ -241,4 +246,5 @@ class Step extends StatelessWidget {
       ],
     );
   }
+  
 }

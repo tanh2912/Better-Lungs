@@ -2,7 +2,7 @@ import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
-import 'package:fitness_flutter/screens/workout_details_screen/bloc/workoutdetails_bloc.dart';
+import 'package:fitness_flutter/screens/workout_details_screen/bloc/workout_details_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -15,7 +15,7 @@ class ExercisesList extends StatelessWidget {
       {Key? key, required this.exercises, required this.workout})
       : super(key: key);
 
-  @override
+    @override
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.only(top: 10),
@@ -26,6 +26,7 @@ class ExercisesList extends StatelessWidget {
           nextExercise:
               index == exercises.length - 1 ? null : exercises[index + 1],
           workout: workout,
+          index: index,
         );
       },
       separatorBuilder: (context, index) {
@@ -39,13 +40,15 @@ class ExerciseCell extends StatelessWidget {
   final WorkoutData workout;
   final ExerciseData currentExercise;
   final ExerciseData? nextExercise;
+  final int index;
 
-  const ExerciseCell({
-    Key? key,
+   const ExerciseCell({Key? key, 
     required this.currentExercise,
     required this.workout,
     required this.nextExercise,
+    required this.index,
   }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +60,9 @@ class ExerciseCell extends StatelessWidget {
           borderRadius: BorderRadius.circular(40),
           onTap: () {
             bloc.add(
-              WorkoutExerciseCellTappedEvent(
-                currentExercise: currentExercise,
-                nextExercise: nextExercise,
+             StartTappedEvent(
+                workout: workout,
+                index: index,
               ),
             );
           },
@@ -116,7 +119,7 @@ class ExerciseCell extends StatelessWidget {
       children: [
         Text(
           currentExercise.title,
-          style: const TextStyle(
+          style:  const TextStyle(
             color: ColorConstants.textColor,
             fontSize: 16,
             fontWeight: FontWeight.w700,
@@ -153,4 +156,6 @@ class ExerciseCell extends StatelessWidget {
       ),
     );
   }
+  
 }
+

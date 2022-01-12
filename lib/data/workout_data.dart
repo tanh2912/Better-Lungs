@@ -7,7 +7,7 @@ class WorkoutData {
   late String title;
   late String exercises;
   late String seconds;
-  int? currentProgress;
+  late int currentProgress;
   late int progress;
   late String image;
   late List<ExerciseData> exerciseDataList;

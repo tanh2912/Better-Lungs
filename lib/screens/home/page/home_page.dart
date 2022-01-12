@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
+import 'package:fitness_flutter/screens/home/bloc/home_state.dart';
 import 'package:fitness_flutter/screens/home/widget/home_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +20,7 @@ class HomePage extends StatelessWidget {
       child: BlocConsumer<HomeBloc, HomeState>(
         buildWhen: (_, currState) => currState is HomeInitial,
         builder: (context, state) {
-          return HomeContent();
+          return const HomeContent(workouts: [],);
         },
         listenWhen: (_, currState) => true,
         listener: (context, state) {},

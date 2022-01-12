@@ -1,30 +1,27 @@
-
-
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
+import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeStatistics extends StatelessWidget {
   const HomeStatistics({Key? key}) : super(key: key);
-
-  @override
+ @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<HomeBloc>(context);
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _createComletedWorkouts(context),
-          _createColumnStatistics(),
+          _createComletedWorkouts(context, bloc),
+          _createColumnStatistics(bloc),
         ],
       ),
     );
   }
-
-  Widget _createComletedWorkouts(BuildContext context) {
+  Widget _createComletedWorkouts(BuildContext context, HomeBloc bloc) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.all(15),
@@ -45,14 +42,14 @@ class HomeStatistics extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Row(
-            children: [
-              const Image(
+            children: const [
+              Image(
                 image: AssetImage(
                   PathConstants.finished,
                 ),
               ),
-              const SizedBox(width: 10),
-              const Expanded(
+              SizedBox(width: 10),
+              Expanded(
                 child: Text(
                   TextConstants.finished,
                   style: TextStyle(
@@ -66,9 +63,9 @@ class HomeStatistics extends StatelessWidget {
               ),
             ],
           ),
-          const Text(
-            '12',
-            style: TextStyle(
+          Text(
+            '${bloc.getFinishedWorkouts()}',
+            style: const TextStyle(
               fontSize: 48,
               fontWeight: FontWeight.w700,
               color: ColorConstants.textBlack,
@@ -88,20 +85,20 @@ class HomeStatistics extends StatelessWidget {
     );
   }
 
-  Widget _createColumnStatistics() {
+  Widget _createColumnStatistics(HomeBloc bloc) {
     return Column(
-      children: const [
+      children: [
         DataWorkouts(
           icon: PathConstants.inProgress,
           title: TextConstants.inProgress,
-          count: 0,
+          count: bloc.getInProgressWorkouts() ?? 0,
           text: TextConstants.workouts,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         DataWorkouts(
           icon: PathConstants.timeSent,
           title: TextConstants.timeSent,
-          count: 0,
+          count: bloc.getTimeSent() ?? 0,
           text: TextConstants.seconds,
         ),
       ],
@@ -109,14 +106,13 @@ class HomeStatistics extends StatelessWidget {
   }
 }
 
-
 class DataWorkouts extends StatelessWidget {
   final String icon;
   final String title;
   final int count;
   final String text;
 
-  const DataWorkouts({
+  DataWorkouts({
     Key? key,
     required this.icon,
     required this.title,
@@ -151,7 +147,7 @@ class DataWorkouts extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.textBlack,
@@ -163,7 +159,7 @@ class DataWorkouts extends StatelessWidget {
             children: [
               Text(
                 count.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   color: ColorConstants.textBlack,
@@ -172,7 +168,7 @@ class DataWorkouts extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.grey,

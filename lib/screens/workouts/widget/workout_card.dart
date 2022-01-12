@@ -28,8 +28,7 @@ class WorkoutCard extends StatelessWidget {
               blurRadius: 5.0,
               spreadRadius: 1.1)
         ],
-      ),
-      child: Material(
+      ),child: Material(
         color: Colors.transparent,
         child: BlocBuilder<WorkoutsBloc, WorkoutsState>(
           buildWhen: (_, currState) => currState is CardTappedState,
@@ -40,8 +39,7 @@ class WorkoutCard extends StatelessWidget {
                 bloc.add(CardTappedEvent(workout: workout));
               },
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -56,9 +54,7 @@ class WorkoutCard extends StatelessWidget {
                                   fontSize: 18, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 3),
                           Text(
-                              workout.exercises +
-                                  " " +
-                                  TextConstants.exercisesUppercase,
+                              '${workout.exerciseDataList.length} ${TextConstants.exercisesUppercase}',
                               style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
@@ -66,7 +62,9 @@ class WorkoutCard extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2),
                           const SizedBox(height: 3),
-                          Text(workout.seconds + " " + TextConstants.seconds,
+                          Text(
+                              '${_getWorkoutSeconds()}' " " +
+                                  TextConstants.seconds,
                               style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
@@ -82,7 +80,7 @@ class WorkoutCard extends StatelessWidget {
                                 const EdgeInsets.only(right: 30.0, left: 2),
                             child: LinearPercentIndicator(
                               percent:
-                                  workout.currentProgress! / workout.progress,
+                                  workout.currentProgress / workout.progress,
                               progressColor: ColorConstants.primaryColor,
                               backgroundColor:
                                   ColorConstants.primaryColor.withOpacity(0.12),
@@ -95,10 +93,12 @@ class WorkoutCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 60),
                     Expanded(
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child:
-                                Image.asset(workout.image, fit: BoxFit.fill))),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child:
+                            Image.asset(workout.image, fit: BoxFit.fill),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -107,5 +107,13 @@ class WorkoutCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
+  }int _getWorkoutSeconds() {
+    var minutes = 0;
+    final minutesList =
+        workout.exerciseDataList.map((e) => e.seconds).toList();
+    for (var e in minutesList) {
+      minutes += e;
+    }
+    return minutes;
+  }}
+

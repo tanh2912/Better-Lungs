@@ -1,9 +1,8 @@
-
 import 'package:fitness_flutter/screens/workouts/bloc/workouts_bloc.dart';
 import 'package:fitness_flutter/screens/workouts/widget/workout_content.dart';
-import 'package:fitness_flutter/screens/workout_details_screen/page/workout_details_page';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fitness_flutter/screens/workout_details_screen/page/workout_details_page';
 
 class WorkoutsPage extends StatelessWidget {
   const WorkoutsPage({Key? key}) : super(key: key);
@@ -19,16 +18,20 @@ class WorkoutsPage extends StatelessWidget {
       child: BlocConsumer<WorkoutsBloc, WorkoutsState>(
         buildWhen: (_, currState) => currState is WorkoutsInitial,
         builder: (context, state) {
-          return const WorkoutContent();
+          final bloc = BlocProvider.of<WorkoutsBloc>(context);
+          bloc.add(WorkoutsInitialEvent());
+          return WorkoutContent();
         },
         listenWhen: (_, currState) => currState is CardTappedState,
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is CardTappedState) {
-            Navigator.of(context, rootNavigator: true).push(
+            await Navigator.of(context, rootNavigator: true).push(
               MaterialPageRoute(
                 builder: (_) => WorkoutDetailsPage(workout: state.workout),
               ),
             );
+            final bloc = BlocProvider.of<WorkoutsBloc>(context);
+            bloc.add(WorkoutsInitialEvent());
           }
         },
       ),
