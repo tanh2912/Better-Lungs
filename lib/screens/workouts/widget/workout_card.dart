@@ -108,12 +108,12 @@ class WorkoutCard extends StatelessWidget {
       ),
     );
   }int _getWorkoutSeconds() {
-    var minutes = 0;
-    final minutesList =
+    var seconds = 0;
+    final secondsList =
         workout.exerciseDataList.map((e) => e.seconds).toList();
-    for (var e in minutesList) {
-      minutes += e;
+    for (var e in secondsList) {
+      seconds += e;
     }
-    return minutes;
+    return seconds;
   }}
 

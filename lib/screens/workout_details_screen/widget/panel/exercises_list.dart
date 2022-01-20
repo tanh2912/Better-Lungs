@@ -11,11 +11,9 @@ class ExercisesList extends StatelessWidget {
   final WorkoutData workout;
   final List<ExerciseData> exercises;
 
-  const ExercisesList(
-      {Key? key, required this.exercises, required this.workout})
-      : super(key: key);
+   const ExercisesList({Key? key, required this.exercises, required this.workout}) : super(key: key);
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.only(top: 10),
@@ -23,10 +21,8 @@ class ExercisesList extends StatelessWidget {
       itemBuilder: (context, index) {
         return ExerciseCell(
           currentExercise: exercises[index],
-          nextExercise:
-              index == exercises.length - 1 ? null : exercises[index + 1],
+          nextExercise: index == exercises.length - 1 ? null : exercises[index + 1],
           workout: workout,
-          index: index,
         );
       },
       separatorBuilder: (context, index) {
@@ -40,15 +36,12 @@ class ExerciseCell extends StatelessWidget {
   final WorkoutData workout;
   final ExerciseData currentExercise;
   final ExerciseData? nextExercise;
-  final int index;
 
    const ExerciseCell({Key? key, 
     required this.currentExercise,
     required this.workout,
     required this.nextExercise,
-    required this.index,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,16 +53,15 @@ class ExerciseCell extends StatelessWidget {
           borderRadius: BorderRadius.circular(40),
           onTap: () {
             bloc.add(
-             StartTappedEvent(
-                workout: workout,
-                index: index,
+              WorkoutExerciseCellTappedEvent(
+                currentExercise: currentExercise,
+                nextExercise: nextExercise,
               ),
             );
           },
           child: Container(
             width: double.infinity,
-            padding:
-                const EdgeInsets.only(left: 10, right: 25, top: 10, bottom: 10),
+            padding: const EdgeInsets.only(left: 10, right: 25, top: 10, bottom: 10),
             decoration: BoxDecoration(
               color: ColorConstants.white,
               borderRadius: BorderRadius.circular(10),
@@ -119,7 +111,7 @@ class ExerciseCell extends StatelessWidget {
       children: [
         Text(
           currentExercise.title,
-          style:  const TextStyle(
+          style: const TextStyle(
             color: ColorConstants.textColor,
             fontSize: 16,
             fontWeight: FontWeight.w700,
@@ -156,6 +148,4 @@ class ExerciseCell extends StatelessWidget {
       ),
     );
   }
-  
 }
-

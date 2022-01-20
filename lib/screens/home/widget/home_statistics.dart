@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeStatistics extends StatelessWidget {
   const HomeStatistics({Key? key}) : super(key: key);
- @override
+
+  @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<HomeBloc>(context);
     return Container(
@@ -21,7 +22,8 @@ class HomeStatistics extends StatelessWidget {
       ),
     );
   }
-  Widget _createComletedWorkouts(BuildContext context, HomeBloc bloc) {
+  
+ Widget _createComletedWorkouts(BuildContext context, HomeBloc bloc) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.all(15),
@@ -91,14 +93,14 @@ class HomeStatistics extends StatelessWidget {
         DataWorkouts(
           icon: PathConstants.inProgress,
           title: TextConstants.inProgress,
-          count: bloc.getInProgressWorkouts() ?? 0,
+          count: bloc.getInProgressWorkouts(),
           text: TextConstants.workouts,
         ),
         const SizedBox(height: 20),
         DataWorkouts(
           icon: PathConstants.timeSent,
           title: TextConstants.timeSent,
-          count: bloc.getTimeSent() ?? 0,
+          count: bloc.getTimeSent(),
           text: TextConstants.seconds,
         ),
       ],
@@ -106,13 +108,14 @@ class HomeStatistics extends StatelessWidget {
   }
 }
 
+
 class DataWorkouts extends StatelessWidget {
   final String icon;
   final String title;
   final int count;
   final String text;
 
-  DataWorkouts({
+  const DataWorkouts({
     Key? key,
     required this.icon,
     required this.title,

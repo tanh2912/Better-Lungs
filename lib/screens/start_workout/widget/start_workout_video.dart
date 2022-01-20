@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:chewie/chewie.dart'; // Tankvideo TNT
+import 'package:chewie/chewie.dart';
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
 import 'package:flutter/cupertino.dart';

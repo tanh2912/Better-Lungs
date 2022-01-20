@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_flutter/core/extensions/exceptions.dart';
 import 'package:fitness_flutter/core/service/auth_service.dart';
+import 'package:flutter/foundation.dart';
 
 class UserService {
   static final FirebaseAuth firebase = FirebaseAuth.instance;
@@ -10,7 +11,9 @@ class UserService {
       await firebase.currentUser?.updatePhotoURL(photoUrl);
       return true;
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       return false;
     }
   }
@@ -22,7 +25,9 @@ class UserService {
       await firebase.currentUser?.updateEmail(email);
       return true;
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       throw Exception(e);
     }
   }

@@ -31,7 +31,7 @@ class _StartWorkoutTimerState extends State<StartWorkoutTimer> {
       onBuildAction: CustomTimerAction.auto_start,
       builder: (CustomTimerRemainingTime remaining) {
         return Text(
-          "${remaining.minutes}:${remaining.seconds}",
+          remaining.seconds,
           style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
         );
       },
@@ -39,9 +39,9 @@ class _StartWorkoutTimerState extends State<StartWorkoutTimer> {
   }
 
   Widget _createPauseText() {
-    final minutesSeconds = DateService.convertIntoSeconds(widget.time);
+    final seconds = DateService.convertIntoSeconds(widget.time);
     return Text(
-      "${minutesSeconds.minutes.toString().padLeft(2, '0')}:${minutesSeconds.seconds.toString().padLeft(2, '0')}",
+      "${seconds.toString().padLeft(2, '0')}}",
       style: const TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.w600,

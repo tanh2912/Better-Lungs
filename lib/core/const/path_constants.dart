@@ -62,16 +62,16 @@ class PathConstants {
   static const String recliningVideo = 'assets/videos/workouts/reclining.mp4';
   static const String cowPoseVideo = 'assets/videos/workouts/cow.mp4';
   static const String warriorIIVideo = 'assets/videos/workouts/warriorII.mp4';
-  static const String hohuuhieuVideo = 'assets/videos/workouts/warriorII.mp4';
+  static const String hohuuhieuVideo = 'assets/videos/workouts/hohuuhieu.mp4';
   static const String thochukychudongVideo =
-      'assets/videos/workouts/warriorII.mp4';
+      'assets/videos/workouts/thochukydong.mp4';
   // Start workout -> Full body
-  static const String nangvaiVideo = 'assets/videos/workouts/warriorII.mp4';
+  static const String nangvaiVideo = 'assets/videos/workouts/nangvai.mp4';
   static const String gapduoikhuyutayVideo =
-      'assets/videos/workouts/warriorII.mp4';
+      'assets/videos/workouts/gapkhuyutay.mp4';
   static const String gapxoaycochanVideo =
-      'assets/videos/workouts/warriorII.mp4';
-  static const String coduoichanVideo = 'assets/videos/workouts/warriorII.mp4';
-  static const String dangchanVideo = 'assets/videos/workouts/warriorII.mp4';
-  static const String nangchanVideo = 'assets/videos/workouts/warriorII.mp4';
+      'assets/videos/workouts/gapcochan.mp4';
+  static const String coduoichanVideo = 'assets/videos/workouts/coduoichan.mp4';
+  static const String dangchanVideo = 'assets/videos/workouts/dangchan.mp4';
+  static const String nangchanVideo = 'assets/videos/workouts/nangchan.mp4';
 }

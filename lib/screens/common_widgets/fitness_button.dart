@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class FitnessButton extends StatelessWidget {
   final String title;
   final bool isEnabled;
-  final Function() onTap;
+  final dynamic Function() onTap;
 
    // ignore: use_key_in_widget_constructors
-   const FitnessButton({required this.title, this.isEnabled = true, required this.onTap});
+   const FitnessButton({required this.title, this.isEnabled = true,required this.onTap});
 
   @override
   Widget build(BuildContext context) {

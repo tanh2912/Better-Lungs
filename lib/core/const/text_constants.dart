@@ -68,27 +68,27 @@ class TextConstants {
   static const String pdfFiles = "Thông tin bạn cần biết!";
 
   static const String keepProgress = "Cố gắng lên nào!";
-  static const String profileSuccessful = "Bạn đã hoàn thành bài tập.";
+  static const String profileSuccessful = "Bạn đã hoàn thành bài tập";
 
   // Home screen -> cardio card
   static const String cardioTitle = "Tập thở";
   static const String cardioExercises = "05";
-  static const String cardioSeconds = "50";
+  static const String cardioSeconds = "100";
 
   // Home screen -> arms card
   static const String armsTitle = "Vận động";
   static const String armsExercises = "06";
-  static const String armsSeconds = "35";
+  static const String armsSeconds = "120";
 
   //Workout screen -> yoga card
   static const String yogaTitle = "Tập thở";
   static const String yogaExercises = "05";
-  static const String yogaSeconds = "52";
+  static const String yogaSeconds = "100";
 
   //Workout screen -> fullBody card
   static const String fullBodyTitle = "Vận động";
   static const String fullBodyExercises = "06";
-  static const String fullBodySeconds = "48";
+  static const String fullBodySeconds = "120";
 
   //Settings screen
   static const String joinUs = 'Tham gia mạng xã hội cùng chúng tôi';
@@ -104,47 +104,47 @@ class TextConstants {
 
   // Workout Details screen -> card1
   static const String reclining = "Thở chúm môi";
-  static const int recliningSeconds = 12;
+  static const int recliningSeconds = 20;
 
   // Workout Details screen -> card2
   static const String cowPose = "Thở cơ hoành";
-  static const int cowPoseSeconds = 8;
+  static const int cowPoseSeconds = 20;
 
   // Workout Details screen -> card3
   static const String warriorPose = "Thở bụng";
-  static const int warriorPoseSeconds = 12;
+  static const int warriorPoseSeconds = 20;
 
   // Workout Details screen -> card4
   static const String hohuuhieu = "Ho hữu hiệu";
-  static const int hohuuhieuSeconds = 12;
+  static const int hohuuhieuSeconds = 20;
 
   // Workout Details screen -> card5
   static const String thochukychudong = "Thở chu kỳ chủ động";
-  static const int thochukychudongSeconds = 12;
+  static const int thochukychudongSeconds = 20;
 
   // Workout Details screen -> card6
   static const String nangvai = "Nâng vai";
-  static const int nangvaiSeconds = 12;
+  static const int nangvaiSeconds = 20;
 
   // Workout Details screen -> card7
   static const String gapduoikhuyutay = "Gập, duỗi khuỷu tay";
-  static const int gapduoikhuyutaySeconds = 12;
+  static const int gapduoikhuyutaySeconds = 20;
 
   // Workout Details screen -> card9
   static const String gapxoaycochan = "Gấp, xoay cổ chân";
-  static const int gapxoaycochanSeconds = 12;
+  static const int gapxoaycochanSeconds = 20;
 
   // Workout Details screen -> card10
   static const String coduoichan = "Co, duỗi chân";
-  static const int coduoichanSeconds = 12;
+  static const int coduoichanSeconds = 20;
 
   // Workout Details screen -> card11
   static const String dangchan = "Dạng chân";
-  static const int dangchanSeconds = 12;
+  static const int dangchanSeconds = 20;
 
   // Workout Details screen -> card12
   static const String nangchan = "Nâng chân";
-  static const int nangchanSeconds = 12;
+  static const int nangchanSeconds = 20;
   // Start Workout screen
   static const String back = "Quay lại";
   static const String next = "Tiếp tục";

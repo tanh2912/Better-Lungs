@@ -1,25 +1,16 @@
 part of 'workout_details_bloc.dart';
 
+@immutable
 abstract class WorkoutDetailsEvent {}
 
 class BackTappedEvent extends WorkoutDetailsEvent {}
 
-class WorkoutDetailsInitialEvent extends WorkoutDetailsEvent {
-  final WorkoutData workout;
+class WorkoutExerciseCellTappedEvent extends WorkoutDetailsEvent {
+  final ExerciseData currentExercise;
+  final ExerciseData? nextExercise;
 
-  WorkoutDetailsInitialEvent({
-    required this.workout,
-  });
-}
-
-class StartTappedEvent extends WorkoutDetailsEvent {
-  final WorkoutData workout;
-  final int index;
-  final bool isReplace;
-
-  StartTappedEvent({
-    required this.workout,
-    required this.index,
-    this.isReplace = false,
+  WorkoutExerciseCellTappedEvent({
+    required this.currentExercise,
+    required this.nextExercise,
   });
 }
