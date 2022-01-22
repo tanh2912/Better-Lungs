@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
 
@@ -38,18 +37,18 @@ class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {
       DateTime dateTime, int? dayTime) async {
     final flutterNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-    final androidPlatformChannelSpecifics = AndroidNotificationDetails(
+    const androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'your other channel id', 'your other channel name',
         channelDescription: 'your other channel description');
-    final iOSPlatformChannelSpecifics = IOSNotificationDetails();
-    NotificationDetails platformChannelSpecifics = NotificationDetails(
+    const iOSPlatformChannelSpecifics = IOSNotificationDetails();
+    NotificationDetails platformChannelSpecifics = const NotificationDetails(
         android: androidPlatformChannelSpecifics,
         iOS: iOSPlatformChannelSpecifics);
 
     await flutterNotificationsPlugin.zonedSchedule(
       1,
-      "Fitness",
-      "Hey, it's time to start your exercises!",
+      "BetterLungs",
+      "Hãy cùng bắt đầu tập luyện nào!",
       _scheduleWeekly(dateTime, days: _createNotificationDayOfTheWeek(dayTime)),
       platformChannelSpecifics,
       uiLocalNotificationDateInterpretation:
@@ -67,7 +66,7 @@ class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {
         .subtract(Duration(hours: timezoneOffset.inHours));
 
     return scheduleDate.isBefore(now)
-        ? scheduleDate.add(Duration(days: 1))
+        ? scheduleDate.add(const Duration(days: 1))
         : scheduleDate;
   }
 

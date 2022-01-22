@@ -58,4 +58,7 @@ class WorkoutData {
     final str = json.encode(toJson());
     return str;
   }
+  
+  
+
 }

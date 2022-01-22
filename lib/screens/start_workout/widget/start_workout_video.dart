@@ -42,7 +42,7 @@ class _StartWorkoutVideoState extends State<StartWorkoutVideo> {
         looping: true,
         autoPlay: false,
         deviceOrientationsAfterFullScreen: [DeviceOrientation.portraitUp],
-        aspectRatio: 15 / 10,
+        aspectRatio: 16.5 / 10,
         placeholder: const Center(child: CupertinoActivityIndicator()),
         materialProgressColors: ChewieProgressColors(playedColor: ColorConstants.primaryColor));
     super.initState();

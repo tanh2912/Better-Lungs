@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:custom_timer/custom_timer.dart';
 import 'package:fitness_flutter/core/service/date_service.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +6,7 @@ class StartWorkoutTimer extends StatefulWidget {
   final int time;
   final bool isPaused;
 
-  const StartWorkoutTimer({
-    Key? key,
+  const StartWorkoutTimer({Key? key, 
     required this.time,
     required this.isPaused,
   }) : super(key: key);
@@ -27,21 +24,21 @@ class _StartWorkoutTimerState extends State<StartWorkoutTimer> {
   Widget _createCountdownTimer() {
     return CustomTimer(
       from: Duration(seconds: widget.time),
-      to: Duration(seconds: 0),
+      to: const Duration(seconds: 0),
       onBuildAction: CustomTimerAction.auto_start,
       builder: (CustomTimerRemainingTime remaining) {
         return Text(
           remaining.seconds,
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
         );
       },
     );
   }
 
   Widget _createPauseText() {
-    final seconds = DateService.convertIntoSeconds(widget.time);
+    final secondsSeconds = DateService.convertIntoSeconds(widget.time);
     return Text(
-      "${seconds.toString().padLeft(2, '0')}}",
+      secondsSeconds.seconds.toString().padLeft(2, '0'),
       style: const TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.w600,

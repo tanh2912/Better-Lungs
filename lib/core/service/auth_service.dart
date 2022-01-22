@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_flutter/core/extensions/exceptions.dart';
-import 'package:flutter/foundation.dart';
 
 class AuthService {
   static final FirebaseAuth auth = FirebaseAuth.instance;
@@ -50,9 +49,7 @@ class AuthService {
 }
 
 String getExceptionMessage(FirebaseAuthException e) {
-  if (kDebugMode) {
-    print(e.code);
-  }
+  print(e.code);
   switch (e.code) {
     case 'user-not-found':
       return 'User not found';

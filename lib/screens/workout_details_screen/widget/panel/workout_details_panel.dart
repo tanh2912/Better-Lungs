@@ -63,7 +63,7 @@ class WorkoutDetailsPanel extends StatelessWidget {
         children: [
           WorkoutTag(
             icon: PathConstants.timeTracker,
-            content: "${_getExerciseTime()}:00",
+            content: "${_getExerciseTime()}",
           ),
           const SizedBox(width: 15),
           WorkoutTag(
