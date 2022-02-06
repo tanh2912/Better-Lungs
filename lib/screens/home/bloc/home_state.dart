@@ -1,7 +1,4 @@
-
-
-import 'package:fitness_flutter/data/workout_data.dart';
-import 'package:flutter/material.dart';
+part of 'home_bloc.dart';
 
 @immutable
 abstract class HomeState {}

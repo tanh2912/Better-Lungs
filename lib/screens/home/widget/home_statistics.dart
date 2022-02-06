@@ -100,14 +100,13 @@ class HomeStatistics extends StatelessWidget {
         DataWorkouts(
           icon: PathConstants.timeSent,
           title: TextConstants.timeSent,
-          count: bloc.getTimeSent() ?? 0,//////
+          count: bloc.getTimeSent() ?? 0,
           text: TextConstants.seconds,
         ),
       ],
     );
   }
 }
-
 
 class DataWorkouts extends StatelessWidget {
   final String icon;

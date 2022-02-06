@@ -6,14 +6,10 @@ import 'package:fitness_flutter/core/const/data_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
-
 import 'package:fitness_flutter/screens/edit_account/edit_account_screen.dart';
 import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
-import 'package:fitness_flutter/screens/home/bloc/home_event.dart';
-import 'package:fitness_flutter/screens/home/bloc/home_state.dart';
 import 'package:fitness_flutter/screens/home/widget/home_exercises_card.dart';
 import 'package:fitness_flutter/screens/home/widget/home_statistics.dart';
-
 import 'package:fitness_flutter/screens/workout_details_screen/page/workout_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

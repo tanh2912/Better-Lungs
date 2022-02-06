@@ -6,10 +6,13 @@ import 'package:fitness_flutter/core/service/data_service.dart';
 import 'package:fitness_flutter/core/service/user_storage_service.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
-import 'package:fitness_flutter/screens/home/bloc/home_event.dart';
-import 'package:fitness_flutter/screens/home/bloc/home_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:async';
 
+import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
+
+part 'home_event.dart';
+part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial());
 
@@ -39,10 +42,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  int? getProgressPercentage() {
+  int getProgressPercentage() {
     final completed = workouts
-        .where(
-            (w) => (w.currentProgress) > 0 && w.currentProgress == w.progress)
+        .where((w) =>
+            (w.currentProgress) > 0 && w.currentProgress == w.progress)
         .toList();
     final percent01 =
         completed.length.toDouble() / DataConstants.workouts.length.toDouble();
@@ -56,13 +59,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     return completedWorkouts.length;
   }
 
-  int? getInProgressWorkouts() {
+ int? getInProgressWorkouts() {
     final completedWorkouts = workouts.where(
         (w) => (w.currentProgress) > 0 && w.currentProgress != w.progress);
     return completedWorkouts.length;
   }
 
-  
+
   int? getTimeSent() {
     for (final WorkoutData workout in workouts) {
       exercises.addAll(workout.exerciseDataList);

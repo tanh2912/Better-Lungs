@@ -1,5 +1,4 @@
-
-import 'package:flutter/widgets.dart';
+part of 'home_bloc.dart';
 
 @immutable
 abstract class HomeEvent {}

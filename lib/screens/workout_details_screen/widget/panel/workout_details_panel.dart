@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructor;
-
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
