@@ -101,7 +101,8 @@ class RepeatingDay extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  const RepeatingDay({Key? key, 
+  const RepeatingDay({
+    Key? key,
     required this.title,
     required this.isSelected,
     required this.onTap,

@@ -14,6 +14,7 @@ class WorkoutCard extends StatelessWidget {
     required this.workout,
     required this.onTap,
   });
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

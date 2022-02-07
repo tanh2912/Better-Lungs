@@ -10,9 +10,11 @@ class StartWorkoutPage extends StatelessWidget {
   final ExerciseData? nextExercise;
 
   const StartWorkoutPage(
-      {Key? key, required this.exercise,
+      {Key? key,
+      required this.exercise,
       required this.currentExercise,
-      required this.nextExercise}) : super(key: key);
+      required this.nextExercise})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

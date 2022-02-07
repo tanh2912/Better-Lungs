@@ -11,11 +11,12 @@ class WorkoutDetailsPanel extends StatelessWidget {
   const WorkoutDetailsPanel({Key? key, required this.workout})
       : super(key: key);
 
- @override
+  @override
   Widget build(BuildContext context) {
     return _createPanelData(context);
   }
-   Widget _createPanelData(BuildContext context) {
+
+  Widget _createPanelData(BuildContext context) {
     return Column(
       children: [
         const SizedBox(height: 15),
@@ -54,7 +55,7 @@ class WorkoutDetailsPanel extends StatelessWidget {
     );
   }
 
- Widget _createWorkoutData(BuildContext context) {
+  Widget _createWorkoutData(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
@@ -79,11 +80,11 @@ class WorkoutDetailsPanel extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ExercisesList(
-            exercises: workout.exerciseDataList,
-                   workout: workout),
+            exercises: workout.exerciseDataList, workout: workout),
       ),
     );
   }
+
   int _getExerciseTime() {
     int time = 0;
     final List<int?> exerciseList =
@@ -94,5 +95,3 @@ class WorkoutDetailsPanel extends StatelessWidget {
     return time;
   }
 }
-
-

@@ -8,6 +8,7 @@ import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
 import 'package:fitness_flutter/screens/edit_account/edit_account_screen.dart';
 import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
+import 'package:fitness_flutter/screens/home/page/pdf_page.dart';
 import 'package:fitness_flutter/screens/home/widget/home_exercises_card.dart';
 import 'package:fitness_flutter/screens/home/widget/home_statistics.dart';
 import 'package:fitness_flutter/screens/workout_details_screen/page/workout_details_page.dart';
@@ -44,7 +45,92 @@ class HomeContent extends StatelessWidget {
           const SizedBox(height: 30),
           _createExercisesList(context),
           const SizedBox(height: 25),
-             _createProgress(bloc),
+          _createProgress(bloc),
+          _createPdfList(context)
+        ],
+      ),
+    );
+  }
+
+  Widget _createPdfList(BuildContext context) {
+    const String pdf1 = 'assets/PDFfiles/chamsoc.pdf';
+    const String pdf2 = 'assets/PDFfiles/quyetdinh.pdf';
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Thông tin cần biết',
+            style: TextStyle(
+              color: ColorConstants.textBlack,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16, bottom: 16),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => PdfPage(pdf1)));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: ColorConstants.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorConstants.textBlack.withOpacity(0.12),
+                            blurRadius: 5.0,
+                            spreadRadius: 1.1,
+                          ),
+                        ],
+                      ),
+                      child: const Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        child: Center(child: const Text('chamsoc.pdf')),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => PdfPage(pdf2)));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: ColorConstants.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorConstants.textBlack.withOpacity(0.12),
+                            blurRadius: 5.0,
+                            spreadRadius: 1.1,
+                          ),
+                        ],
+                      ),
+                      child: const Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        child: Center(child: const Text('quyetdinh.pdf')),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -58,51 +144,56 @@ class HomeContent extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hi, $displayName',
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+          Expanded(
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hi, $displayName',
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 2),
-              const Text(
-                TextConstants.checkActivity,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                const SizedBox(height: 2),
+                const Text(
+                  TextConstants.checkActivity,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          BlocBuilder<HomeBloc, HomeState>(
-            buildWhen: (_, currState) => currState is ReloadImageState,
-            builder: (context, state) {
-              final photoUrl = FirebaseAuth.instance.currentUser?.photoURL;
-              return GestureDetector(
-                child: photoUrl == null
-                    ? const CircleAvatar(
-                        backgroundImage: AssetImage(PathConstants.profile),
-                        radius: 60)
-                    : CircleAvatar(
-                        child: ClipOval(
-                            child: FadeInImage.assetNetwork(
-                                placeholder: PathConstants.profile,
-                                image: photoUrl,
-                                fit: BoxFit.cover,
-                                width: 200,
-                                height: 120)),
-                        radius: 25),
-                onTap: () async {
-                  await Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => const EditAccountScreen()));
-                  BlocProvider.of<HomeBloc>(context).add(ReloadImageEvent());
-                },
-              );
-            },
+          Expanded(
+            flex: 1,
+            child: BlocBuilder<HomeBloc, HomeState>(
+              buildWhen: (_, currState) => currState is ReloadImageState,
+              builder: (context, state) {
+                final photoUrl = FirebaseAuth.instance.currentUser?.photoURL;
+                return GestureDetector(
+                  child: photoUrl == null
+                      ? const CircleAvatar(
+                          backgroundImage: AssetImage(PathConstants.profile),
+                          radius: 60)
+                      : CircleAvatar(
+                          child: ClipOval(
+                              child: FadeInImage.assetNetwork(
+                            placeholder: PathConstants.profile,
+                            image: photoUrl,
+                            fit: BoxFit.cover,
+                          )),
+                          radius: 25),
+                  onTap: () async {
+                    await Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => const EditAccountScreen()));
+                    BlocProvider.of<HomeBloc>(context).add(ReloadImageEvent());
+                  },
+                );
+              },
+            ),
           ),
         ],
       ),

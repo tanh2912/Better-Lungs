@@ -9,10 +9,12 @@ class ChangePasswordProgress extends ChangePasswordState {}
 
 class ChangePasswordError extends ChangePasswordState {
   final String error;
+
   ChangePasswordError(this.error);
 }
 
 class ChangePasswordSuccess extends ChangePasswordState {
   final String message;
+
   ChangePasswordSuccess({required this.message});
 }

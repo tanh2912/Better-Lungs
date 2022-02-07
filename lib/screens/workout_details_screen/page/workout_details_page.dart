@@ -11,6 +11,7 @@ import 'package:fitness_flutter/core/extensions/list_extension.dart';
 
 class WorkoutDetailsPage extends StatelessWidget {
   final WorkoutData workout;
+
   const WorkoutDetailsPage({Key? key, required this.workout}) : super(key: key);
 
   @override
@@ -25,23 +26,31 @@ class WorkoutDetailsPage extends StatelessWidget {
         buildWhen: (_, currState) => currState is WorkoutDetailsInitial,
         builder: (context, state) {
           return Scaffold(
-              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerFloat,
               floatingActionButton: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: FitnessButton(
                   title: TextConstants.start,
                   onTap: () {
-                    ExerciseData? exercise = workout.exerciseDataList.firstWhereOrNull((element) => element.progress < 1);
+                    ExerciseData? exercise = workout.exerciseDataList
+                        .firstWhereOrNull((element) => element.progress < 1);
                     exercise ??= workout.exerciseDataList.first;
-                    int exerciseIndex = workout.exerciseDataList.indexOf(exercise);
+                    int exerciseIndex =
+                        workout.exerciseDataList.indexOf(exercise);
                     Navigator.of(context).push(
                       MaterialPageRoute(
                           builder: (_) => BlocProvider.value(
-                                value: BlocProvider.of<WorkoutDetailsBloc>(context),
+                                value: BlocProvider.of<WorkoutDetailsBloc>(
+                                    context),
                                 child: StartWorkoutPage(
                                   exercise: exercise!,
                                   currentExercise: exercise,
-                                  nextExercise: exerciseIndex + 1 < workout.exerciseDataList.length ? workout.exerciseDataList[exerciseIndex + 1] : null,
+                                  nextExercise: exerciseIndex + 1 <
+                                          workout.exerciseDataList.length
+                                      ? workout
+                                          .exerciseDataList[exerciseIndex + 1]
+                                      : null,
                                 ),
                               )),
                     );
@@ -50,7 +59,9 @@ class WorkoutDetailsPage extends StatelessWidget {
               ),
               body: WorkoutDetailsContent(workout: workout));
         },
-        listenWhen: (_, currState) => currState is BackTappedState || currState is WorkoutExerciseCellTappedState,
+        listenWhen: (_, currState) =>
+            currState is BackTappedState ||
+            currState is WorkoutExerciseCellTappedState,
         listener: (context, state) {
           if (state is BackTappedState) {
             Navigator.pop(context);

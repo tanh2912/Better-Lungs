@@ -6,7 +6,8 @@ class StartWorkoutTimer extends StatefulWidget {
   final int time;
   final bool isPaused;
 
-  const StartWorkoutTimer({Key? key, 
+  const StartWorkoutTimer({
+    Key? key,
     required this.time,
     required this.isPaused,
   }) : super(key: key);

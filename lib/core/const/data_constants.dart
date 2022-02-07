@@ -95,7 +95,8 @@ class DataConstants {
               TextConstants.thochukychudongStep3
             ],
           )
-        ], id: ''),
+        ],
+        id: ''),
     WorkoutData(
       title: TextConstants.fullBodyTitle,
       exercises: TextConstants.fullBodyExercises,
@@ -160,7 +161,8 @@ class DataConstants {
           description: TextConstants.nangchanDescription,
           steps: [TextConstants.nangchanStep1],
         ),
-      ], id: '',
+      ],
+      id: '',
     )
   ];
 
@@ -234,7 +236,8 @@ class DataConstants {
               TextConstants.thochukychudongStep3
             ],
           )
-        ], id: ''),
+        ],
+        id: ''),
     WorkoutData(
       title: TextConstants.armsTitle,
       exercises: TextConstants.armsExercises,
@@ -299,7 +302,8 @@ class DataConstants {
           description: TextConstants.nangchanDescription,
           steps: [TextConstants.nangchanStep1],
         ),
-      ], id: '',
+      ],
+      id: '',
     )
   ];
 

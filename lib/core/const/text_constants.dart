@@ -145,6 +145,7 @@ class TextConstants {
   // Workout Details screen -> card12
   static const String nangchan = "Nâng chân";
   static const int nangchanSeconds = 20;
+
   // Start Workout screen
   static const String back = "Quay lại";
   static const String next = "Tiếp tục";
@@ -197,6 +198,7 @@ class TextConstants {
   static const String nangvaiDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
   static const String nangvaiStep1 = "Đưa cánh tay qua đầu (giữ khuỷu thẳng).";
+
   // Start Workout screen -> gapduoikhuyutay: Gập duỗi khuỷu tay
   static const String gapduoikhuyutayDescription =
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
@@ -225,6 +227,7 @@ class TextConstants {
       "Vận động giúp hỗ trợ tiêu hóa, cải thiện tuần hoàn máu và giúp thư giãn.";
   static const String nangchanStep1 =
       "Nằm ngửa co 1 chân, nâng cao chân còn lại, giữ lưng áp sát giường để tránh đau lưng.";
+
   // Reminder screen
   static const String selectTime = "Chọn thời gian nhắc nhở";
   static const String save = "Hoàn tất";
@@ -241,6 +244,7 @@ class TextConstants {
   static const String friday = "Thứ sáu";
   static const String saturday = "Thứ bảy";
   static const String sunday = "Chủ nhật";
+
   // Edit account screen
   static const String editAccount = 'Chỉnh sửa tài khoản';
   static const String editPhoto = 'Chỉnh sửa ảnh';

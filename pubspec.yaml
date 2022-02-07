@@ -37,6 +37,11 @@ dependencies:
 
   equatable: ^2.0.3
 
+  native_pdf_view: ^5.0.0
+  http: ^0.13.4
+  webfeed: ^0.7.0
+  cached_network_image: ^3.2.0
+  webview_flutter: ^3.0.0
 
   # IOS Icons
   cupertino_icons: ^1.0.4

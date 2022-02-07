@@ -8,6 +8,7 @@ import 'package:fitness_flutter/core/service/validation_service.dart';
 import 'package:flutter/material.dart';
 
 part 'sign_in_event.dart';
+
 part 'sign_in_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
@@ -31,7 +32,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       if (_checkValidatorsOfTextField()) {
         try {
           yield LoadingState();
-          await AuthService.signIn(emailController.text, passwordController.text);
+          await AuthService.signIn(
+              emailController.text, passwordController.text);
           yield NextTabBarPageState();
           print("Go to the next page");
         } catch (e) {
@@ -49,10 +51,12 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   }
 
   bool _checkIfSignInButtonEnabled() {
-    return emailController.text.isNotEmpty && passwordController.text.isNotEmpty;
+    return emailController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty;
   }
 
   bool _checkValidatorsOfTextField() {
-    return ValidationService.email(emailController.text) && ValidationService.password(passwordController.text);
+    return ValidationService.email(emailController.text) &&
+        ValidationService.password(passwordController.text);
   }
 }

@@ -2,8 +2,7 @@ import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/screens/home/page/home_page.dart';
-
-import 'package:fitness_flutter/screens/settings/settings_screen.dart';
+import 'package:fitness_flutter/screens/home/page/news_page.dart';
 import 'package:fitness_flutter/screens/tab_bar/bloc/tab_bar_bloc.dart';
 import 'package:fitness_flutter/screens/workouts/page/workouts_page.dart';
 import 'package:flutter/material.dart';
@@ -76,9 +75,8 @@ class TabBarPage extends StatelessWidget {
     final children = [
       const HomePage(),
       const WorkoutsPage(),
-
-
-      const SettingsScreen()
+      const NewsPage(),
+      // const SettingsScreen()
       // Scaffold(
       //   body: Center(
       //     child: RawMaterialButton(

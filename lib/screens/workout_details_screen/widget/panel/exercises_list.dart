@@ -11,7 +11,9 @@ class ExercisesList extends StatelessWidget {
   final WorkoutData workout;
   final List<ExerciseData> exercises;
 
-   const ExercisesList({Key? key, required this.exercises, required this.workout}) : super(key: key);
+  const ExercisesList(
+      {Key? key, required this.exercises, required this.workout})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,8 @@ class ExercisesList extends StatelessWidget {
       itemBuilder: (context, index) {
         return ExerciseCell(
           currentExercise: exercises[index],
-          nextExercise: index == exercises.length - 1 ? null : exercises[index + 1],
+          nextExercise:
+              index == exercises.length - 1 ? null : exercises[index + 1],
           workout: workout,
         );
       },
@@ -37,7 +40,8 @@ class ExerciseCell extends StatelessWidget {
   final ExerciseData currentExercise;
   final ExerciseData? nextExercise;
 
-   const ExerciseCell({Key? key, 
+  const ExerciseCell({
+    Key? key,
     required this.currentExercise,
     required this.workout,
     required this.nextExercise,
@@ -61,7 +65,8 @@ class ExerciseCell extends StatelessWidget {
           },
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.only(left: 10, right: 25, top: 10, bottom: 10),
+            padding:
+                const EdgeInsets.only(left: 10, right: 25, top: 10, bottom: 10),
             decoration: BoxDecoration(
               color: ColorConstants.white,
               borderRadius: BorderRadius.circular(10),
@@ -97,7 +102,7 @@ class ExerciseCell extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         image: DecorationImage(
-          image: AssetImage(workout.image),
+          image: AssetImage(currentExercise.image),
           fit: BoxFit.contain,
         ),
       ),

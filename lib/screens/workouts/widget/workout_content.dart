@@ -20,7 +20,8 @@ class WorkoutContent extends StatelessWidget {
       child: _createHomeBody(context),
     );
   }
-Widget _createHomeBody(BuildContext context) {
+
+  Widget _createHomeBody(BuildContext context) {
     final bloc = BlocProvider.of<WorkoutsBloc>(context);
     return BlocBuilder<WorkoutsBloc, WorkoutsState>(
       buildWhen: (_, currState) => currState is ReloadWorkoutsState,
@@ -50,6 +51,7 @@ Widget _createHomeBody(BuildContext context) {
       },
     );
   }
+
   Widget _createWorkoutCard(WorkoutData workoutData) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),

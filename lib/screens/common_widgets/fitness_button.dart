@@ -6,8 +6,9 @@ class FitnessButton extends StatelessWidget {
   final bool isEnabled;
   final dynamic Function() onTap;
 
-   // ignore: use_key_in_widget_constructors
-   const FitnessButton({required this.title, this.isEnabled = true,required this.onTap});
+  // ignore: use_key_in_widget_constructors
+  const FitnessButton(
+      {required this.title, this.isEnabled = true, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,9 @@ class FitnessButton extends StatelessWidget {
       width: double.infinity,
       height: 55,
       decoration: BoxDecoration(
-        color: isEnabled ? ColorConstants.primaryColor : ColorConstants.disabledColor,
+        color: isEnabled
+            ? ColorConstants.primaryColor
+            : ColorConstants.disabledColor,
         borderRadius: BorderRadius.circular(100),
       ),
       child: Material(

@@ -7,6 +7,7 @@ import 'package:fitness_flutter/core/service/auth_service.dart';
 import 'package:flutter/material.dart';
 
 part 'forgot_password_event.dart';
+
 part 'forgot_password_state.dart';
 
 class ForgotPasswordBloc

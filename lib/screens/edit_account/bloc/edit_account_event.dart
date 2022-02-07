@@ -8,5 +8,6 @@ class UploadImage extends EditAccountEvent {}
 class ChangeUserData extends EditAccountEvent {
   final String displayName;
   final String email;
+
   ChangeUserData({required this.displayName, required this.email});
 }

@@ -22,8 +22,8 @@ class HomeStatistics extends StatelessWidget {
       ),
     );
   }
-  
- Widget _createComletedWorkouts(BuildContext context, HomeBloc bloc) {
+
+  Widget _createComletedWorkouts(BuildContext context, HomeBloc bloc) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.all(15),
@@ -147,12 +147,16 @@ class DataWorkouts extends StatelessWidget {
             children: [
               Image(image: AssetImage(icon)),
               const SizedBox(width: 10),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.textBlack,
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.textBlack,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
               ),
             ],

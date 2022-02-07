@@ -5,7 +5,8 @@ class WorkoutTag extends StatelessWidget {
   final String icon;
   final String content;
 
-  const WorkoutTag({Key? key, required this.icon, required this.content}) : super(key: key);
+  const WorkoutTag({Key? key, required this.icon, required this.content})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,13 @@ class WorkoutTag extends StatelessWidget {
         children: [
           Image.asset(icon, height: 17, width: 17, fit: BoxFit.fill),
           const SizedBox(width: 7),
-          Text(content, style: const TextStyle(color: ColorConstants.primaryColor, fontSize: 14, fontWeight: FontWeight.w500)),
+          Text(content,
+              style: const TextStyle(
+                  color: ColorConstants.primaryColor,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500)),
         ],
       ),
     );
   }
-  
 }

@@ -8,6 +8,7 @@ import 'package:fitness_flutter/core/service/validation_service.dart';
 import 'package:flutter/material.dart';
 
 part 'signup_event.dart';
+
 part 'signup_state.dart';
 
 class SignUpBloc extends Bloc<SignupEvent, SignUpState> {
@@ -33,7 +34,8 @@ class SignUpBloc extends Bloc<SignupEvent, SignUpState> {
       if (checkValidatorsOfTextField()) {
         try {
           yield LoadingState();
-          await AuthService.signUp(emailController.text, passwordController.text, userNameController.text);
+          await AuthService.signUp(emailController.text,
+              passwordController.text, userNameController.text);
           yield NextTabBarPageState();
           print("Go to the next page");
         } catch (e) {
@@ -58,6 +60,7 @@ class SignUpBloc extends Bloc<SignupEvent, SignUpState> {
     return ValidationService.username(userNameController.text) &&
         ValidationService.email(emailController.text) &&
         ValidationService.password(passwordController.text) &&
-        ValidationService.confirmPassword(passwordController.text, confirmPasswordController.text);
+        ValidationService.confirmPassword(
+            passwordController.text, confirmPasswordController.text);
   }
 }

@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WorkoutDetailsBody extends StatelessWidget {
   final WorkoutData workout;
+
   const WorkoutDetailsBody({Key? key, required this.workout}) : super(key: key);
 
   @override

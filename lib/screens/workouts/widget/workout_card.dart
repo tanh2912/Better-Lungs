@@ -10,6 +10,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class WorkoutCard extends StatelessWidget {
   final WorkoutData workout;
+
   WorkoutCard({Key? key, required this.workout}) : super(key: key);
 
   @override
@@ -28,7 +29,8 @@ class WorkoutCard extends StatelessWidget {
               blurRadius: 5.0,
               spreadRadius: 1.1)
         ],
-      ),child: Material(
+      ),
+      child: Material(
         color: Colors.transparent,
         child: BlocBuilder<WorkoutsBloc, WorkoutsState>(
           buildWhen: (_, currState) => currState is CardTappedState,
@@ -39,7 +41,8 @@ class WorkoutCard extends StatelessWidget {
                 bloc.add(CardTappedEvent(workout: workout));
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -95,8 +98,7 @@ class WorkoutCard extends StatelessWidget {
                     Expanded(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child:
-                            Image.asset(workout.image, fit: BoxFit.fill),
+                        child: Image.asset(workout.image, fit: BoxFit.fill),
                       ),
                     ),
                   ],
@@ -107,13 +109,14 @@ class WorkoutCard extends StatelessWidget {
         ),
       ),
     );
-  }int _getWorkoutSeconds() {
+  }
+
+  int _getWorkoutSeconds() {
     var seconds = 0;
-    final secondsList =
-        workout.exerciseDataList.map((e) => e.seconds).toList();
+    final secondsList = workout.exerciseDataList.map((e) => e.seconds).toList();
     for (var e in secondsList) {
       seconds += e;
     }
     return seconds;
-  }}
-
+  }
+}

@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
@@ -7,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 part 'reminder_event.dart';
+
 part 'reminder_state.dart';
 
 class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {

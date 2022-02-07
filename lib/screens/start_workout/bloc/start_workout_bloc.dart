@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'start_workout_event.dart';
+
 part 'start_workout_state.dart';
 
 class StartWorkoutBloc extends Bloc<StartWorkoutEvent, StartWorkoutState> {

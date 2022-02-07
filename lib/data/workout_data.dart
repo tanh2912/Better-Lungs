@@ -49,8 +49,7 @@ class WorkoutData {
     data['currentProgress'] = currentProgress;
     data['progress'] = progress;
     data['image'] = image;
-    data['exerciseDataList'] =
-        exerciseDataList.map((v) => v.toJson()).toList();
+    data['exerciseDataList'] = exerciseDataList.map((v) => v.toJson()).toList();
     return data;
   }
 
@@ -58,7 +57,4 @@ class WorkoutData {
     final str = json.encode(toJson());
     return str;
   }
-  
-  
-
 }

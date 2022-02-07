@@ -6,12 +6,12 @@ import 'package:fitness_flutter/core/service/user_service.dart';
 
 class FirebaseStorageService {
   FirebaseStorage storage = FirebaseStorage.instance;
+
   static Future<void> listExample() async {
     ListResult result = await FirebaseStorage.instance.ref().listAll();
     for (var element in result.items) {
       print(element.name);
     }
-    
   }
 
   static Future<bool> uploadImage({required String filePath}) async {

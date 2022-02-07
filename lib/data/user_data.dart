@@ -27,7 +27,7 @@ class UserData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['photo'] = photo;
     data['mail'] = mail;

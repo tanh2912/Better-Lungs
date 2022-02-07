@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
 part 'edit_account_event.dart';
+
 part 'edit_account_state.dart';
 
 class EditAccountBloc extends Bloc<EditAccountEvent, EditAccountState> {

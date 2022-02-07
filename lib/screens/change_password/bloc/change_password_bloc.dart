@@ -8,9 +8,11 @@ import 'package:fitness_flutter/core/service/user_service.dart';
 import 'package:meta/meta.dart';
 
 part 'change_password_event.dart';
+
 part 'change_password_state.dart';
 
-class ChangePasswordBloc extends Bloc<ChangePasswordEvent, ChangePasswordState> {
+class ChangePasswordBloc
+    extends Bloc<ChangePasswordEvent, ChangePasswordState> {
   ChangePasswordBloc() : super(ChangePasswordInitial());
 
   @override

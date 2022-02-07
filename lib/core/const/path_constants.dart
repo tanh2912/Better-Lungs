@@ -16,6 +16,7 @@ class PathConstants {
   // PDF Files
   static const String quyetdinh = "assets/PDFfiles/quyetdinh.pdf";
   static const String chamsoc = 'assets/PDFfiles/chamsoc.pdf';
+
   // Home
   static const String profile = 'assets/images/home/profile.png';
   static const String finished = 'assets/images/home/finished.png';
@@ -65,6 +66,7 @@ class PathConstants {
   static const String hohuuhieuVideo = 'assets/videos/workouts/hohuuhieu.mp4';
   static const String thochukychudongVideo =
       'assets/videos/workouts/thochukydong.mp4';
+
   // Start workout -> Full body
   static const String nangvaiVideo = 'assets/videos/workouts/nangvai.mp4';
   static const String gapduoikhuyutayVideo =

@@ -5,5 +5,6 @@ abstract class ChangePasswordEvent {}
 
 class ChangePassword extends ChangePasswordEvent {
   final String newPass;
+
   ChangePassword({required this.newPass});
 }
