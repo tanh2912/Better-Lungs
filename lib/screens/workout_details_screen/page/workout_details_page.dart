@@ -2,6 +2,7 @@ import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
 import 'package:fitness_flutter/screens/common_widgets/fitness_button.dart';
+import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
 import 'package:fitness_flutter/screens/start_workout/page/start_workout_page.dart';
 import 'package:fitness_flutter/screens/workout_details_screen/bloc/workout_details_bloc.dart';
 import 'package:fitness_flutter/screens/workout_details_screen/widget/workout_details_content.dart';
@@ -21,9 +22,12 @@ class WorkoutDetailsPage extends StatelessWidget {
 
   BlocProvider<WorkoutDetailsBloc> _buildContext(BuildContext context) {
     return BlocProvider<WorkoutDetailsBloc>(
-      create: (context) => WorkoutDetailsBloc(workout: workout),
+      create: (context) => WorkoutDetailsBloc(
+          workout: workout, homeBloc: BlocProvider.of<HomeBloc>(context)),
       child: BlocConsumer<WorkoutDetailsBloc, WorkoutDetailsState>(
-        buildWhen: (_, currState) => currState is WorkoutDetailsInitial,
+        buildWhen: (_, currState) =>
+            currState is WorkoutDetailsInitial ||
+            currState is WorkoutExcerciseUserPracticeState,
         builder: (context, state) {
           return Scaffold(
               floatingActionButtonLocation:
@@ -34,7 +38,8 @@ class WorkoutDetailsPage extends StatelessWidget {
                   title: TextConstants.start,
                   onTap: () {
                     ExerciseData? exercise = workout.exerciseDataList
-                        .firstWhereOrNull((element) => element.progress < 1);
+                        .firstWhereOrNull((element) =>
+                            element.currentSeconds < element.seconds);
                     exercise ??= workout.exerciseDataList.first;
                     int exerciseIndex =
                         workout.exerciseDataList.indexOf(exercise);

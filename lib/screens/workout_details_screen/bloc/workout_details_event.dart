@@ -14,3 +14,13 @@ class WorkoutExerciseCellTappedEvent extends WorkoutDetailsEvent {
     required this.nextExercise,
   });
 }
+
+class WorkoutExerciseUserPracticeEvent extends WorkoutDetailsEvent {
+  final ExerciseData exerciseData;
+  final int currentSecond;
+
+  WorkoutExerciseUserPracticeEvent({
+    required this.exerciseData,
+    required this.currentSecond,
+  });
+}

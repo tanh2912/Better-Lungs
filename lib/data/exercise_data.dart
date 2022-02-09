@@ -1,28 +1,33 @@
 import 'dart:convert';
 
 class ExerciseData {
+  late String id;
   late String title;
   late int seconds;
-  late double progress;
+  late int currentSeconds;
   late String video;
   late String description;
   late String image;
   late List<String> steps;
 
   ExerciseData({
+    required this.id,
     required this.title,
     required this.seconds,
-    required this.progress,
+    this.currentSeconds = 0,
     required this.video,
     required this.description,
     required this.image,
     required this.steps,
   });
 
+  double get progress => currentSeconds / seconds;
+
   ExerciseData.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     title = json['title'];
     seconds = json['seconds'];
-    progress = json['progress'];
+    currentSeconds = json['currentSeconds'] ?? 0;
     video = json['video'];
     description = json['description'];
     image = json['image'];
@@ -31,9 +36,10 @@ class ExerciseData {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['title'] = title;
     data['seconds'] = seconds;
-    data['progress'] = progress;
+    data['currentSeconds'] = currentSeconds;
     data['video'] = video;
     data['image'] = image;
     data['description'] = description;

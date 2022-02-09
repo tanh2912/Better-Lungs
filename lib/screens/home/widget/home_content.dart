@@ -43,7 +43,7 @@ class HomeContent extends StatelessWidget {
           const SizedBox(height: 35),
           const HomeStatistics(),
           const SizedBox(height: 30),
-          _createExercisesList(context),
+          _createExercisesList(context, workouts),
           const SizedBox(height: 25),
           _createProgress(bloc),
           _createPdfList(context)
@@ -242,7 +242,7 @@ Widget _createProgress(HomeBloc bloc) {
   );
 }
 
-Widget _createExercisesList(BuildContext context) {
+Widget _createExercisesList(BuildContext context, List<WorkoutData> workouts) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -264,25 +264,19 @@ Widget _createExercisesList(BuildContext context) {
           scrollDirection: Axis.horizontal,
           children: [
             const SizedBox(width: 20),
-            WorkoutCard(
-                color: ColorConstants.cardioColor,
-                workout: DataConstants.workouts[0],
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => WorkoutDetailsPage(
-                        workout: DataConstants.workouts[0])))),
-            const SizedBox(width: 15),
-            WorkoutCard(
-              color: ColorConstants.armsColor,
-              workout: DataConstants.workouts[1],
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => WorkoutDetailsPage(
-                    workout: DataConstants.workouts[1],
-                  ),
-                ),
+            ...workouts.map(
+              (item) => Padding(
+                padding: const EdgeInsets.only(bottom: 20, right: 20),
+                child: WorkoutCard(
+                    color: item.color,
+                    workout: item,
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => BlocProvider.value(
+                              value: BlocProvider.of<HomeBloc>(context),
+                              child: WorkoutDetailsPage(workout: item),
+                            )))),
               ),
-            ),
-            const SizedBox(width: 20),
+            )
           ],
         ),
       ),

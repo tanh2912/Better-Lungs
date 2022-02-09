@@ -3,6 +3,9 @@ import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
 import 'package:fitness_flutter/screens/onboarding/onboarding_tile.dart';
+import 'package:flutter/material.dart';
+
+import 'color_constants.dart';
 
 class DataConstants {
   // Onboarding
@@ -27,18 +30,17 @@ class DataConstants {
   // Workouts
   static final List<WorkoutData> workouts = [
     WorkoutData(
+        color: ColorConstants.cardioColor,
         title: TextConstants.yogaTitle,
-        exercises: TextConstants.yogaExercises,
-        seconds: TextConstants.yogaSeconds,
         currentProgress: 10,
         progress: 16,
         image: PathConstants.yoga,
         exerciseDataList: [
           ExerciseData(
+            id: "reclining",
             title: TextConstants.reclining,
             seconds: TextConstants.recliningSeconds,
             image: PathConstants.recliningImage,
-            progress: 1,
             video: PathConstants.recliningVideo,
             description: TextConstants.warriorDescription,
             steps: [
@@ -47,19 +49,20 @@ class DataConstants {
             ],
           ),
           ExerciseData(
+            id: "cowPose",
             title: TextConstants.cowPose,
             seconds: TextConstants.cowPoseSeconds,
             image: PathConstants.cowPoseImage,
-            progress: 0.3,
             video: PathConstants.cowPoseVideo,
             description: TextConstants.cowPoseDescription,
             steps: [TextConstants.cowPoseStep1, TextConstants.cowPoseStep2],
           ),
           ExerciseData(
+            id: "warriorPose",
             title: TextConstants.warriorPose,
             seconds: TextConstants.warriorPoseSeconds,
             image: PathConstants.warriorPoseImage,
-            progress: 0.99,
+            // progress: 0.99,
             video: PathConstants.warriorIIVideo,
             description: TextConstants.warriorDescription,
             steps: [
@@ -70,10 +73,10 @@ class DataConstants {
             ],
           ),
           ExerciseData(
+            id: "hohuuhieu",
             title: TextConstants.hohuuhieu,
             seconds: TextConstants.hohuuhieuSeconds,
             image: PathConstants.hohuuhieuImage,
-            progress: 0.3,
             video: PathConstants.hohuuhieuVideo,
             description: TextConstants.hohuuhieuDescription,
             steps: [
@@ -83,10 +86,10 @@ class DataConstants {
             ],
           ),
           ExerciseData(
+            id: "thochukychudong",
             title: TextConstants.thochukychudong,
             seconds: TextConstants.thochukychudongSeconds,
             image: PathConstants.thochukychudongImage,
-            progress: 0.3,
             video: PathConstants.thochukychudongVideo,
             description: TextConstants.thochukychudongDescription,
             steps: [
@@ -96,20 +99,19 @@ class DataConstants {
             ],
           )
         ],
-        id: ''),
+        id: 'yoga'),
     WorkoutData(
+      color: ColorConstants.armsColor,
       title: TextConstants.fullBodyTitle,
-      exercises: TextConstants.fullBodyExercises,
-      seconds: TextConstants.fullBodySeconds,
       currentProgress: 12,
       progress: 14,
       image: PathConstants.fullBody,
       exerciseDataList: [
         ExerciseData(
+          id: "nangvai",
           title: TextConstants.nangvai,
           seconds: TextConstants.nangvaiSeconds,
           image: PathConstants.nangvaiImage,
-          progress: 0.99,
           video: PathConstants.nangvaiVideo,
           description: TextConstants.nangvaiDescription,
           steps: [
@@ -117,69 +119,68 @@ class DataConstants {
           ],
         ),
         ExerciseData(
+          id: "gapduoikhuyutay",
           title: TextConstants.gapduoikhuyutay,
           seconds: TextConstants.gapduoikhuyutaySeconds,
           image: PathConstants.gapduoikhuyutayImage,
-          progress: 0.6,
           video: PathConstants.gapduoikhuyutayVideo,
           description: TextConstants.gapduoikhuyutayDescription,
           steps: [TextConstants.gapduoikhuyutayStep1],
         ),
         ExerciseData(
+          id: "gapxoaycochan",
           title: TextConstants.gapxoaycochan,
           seconds: TextConstants.gapxoaycochanSeconds,
           image: PathConstants.gapxoaycochanImage,
-          progress: 0.8,
           video: PathConstants.gapxoaycochanVideo,
           description: TextConstants.gapxoaycochanDescription,
           steps: [TextConstants.gapxoaycochanStep1],
         ),
         ExerciseData(
+          id: "coduoichan",
           title: TextConstants.coduoichan,
           seconds: TextConstants.coduoichanSeconds,
           image: PathConstants.coduoichanImage,
-          progress: 0.3,
           video: PathConstants.coduoichanVideo,
           description: TextConstants.coduoichanDescription,
           steps: [TextConstants.coduoichanStep1],
         ),
         ExerciseData(
+          id: "dangchan",
           title: TextConstants.dangchan,
           seconds: TextConstants.dangchanSeconds,
           image: PathConstants.dangchanImage,
-          progress: 0.3,
           video: PathConstants.dangchanVideo,
           description: TextConstants.dangchanDescription,
           steps: [TextConstants.dangchanStep1],
         ),
         ExerciseData(
+          id: "nangchan",
           title: TextConstants.nangchan,
           seconds: TextConstants.nangchanSeconds,
           image: PathConstants.nangchanImage,
-          progress: 0.3,
           video: PathConstants.nangchanVideo,
           description: TextConstants.nangchanDescription,
           steps: [TextConstants.nangchanStep1],
         ),
       ],
-      id: '',
+      id: 'fullBody',
     )
   ];
 
   static final List<WorkoutData> homeWorkouts = [
     WorkoutData(
+        color: Colors.black,
         title: TextConstants.cardioTitle,
-        exercises: TextConstants.cardioExercises,
-        seconds: TextConstants.cardioSeconds,
         currentProgress: 10,
         progress: 16,
         image: PathConstants.cardio,
         exerciseDataList: [
           ExerciseData(
+            id: "home_reclining",
             title: TextConstants.reclining,
             seconds: TextConstants.recliningSeconds,
             image: PathConstants.recliningImage,
-            progress: 1,
             video: PathConstants.recliningVideo,
             description: TextConstants.warriorDescription,
             steps: [
@@ -188,19 +189,19 @@ class DataConstants {
             ],
           ),
           ExerciseData(
+            id: "home_cowPose",
             title: TextConstants.cowPose,
             seconds: TextConstants.cowPoseSeconds,
             image: PathConstants.cowPoseImage,
-            progress: 0.3,
             video: PathConstants.cowPoseVideo,
             description: TextConstants.cowPoseDescription,
             steps: [TextConstants.cowPoseStep1, TextConstants.cowPoseStep2],
           ),
           ExerciseData(
+            id: "",
             title: TextConstants.warriorPose,
             seconds: TextConstants.warriorPoseSeconds,
             image: PathConstants.warriorPoseImage,
-            progress: 0.99,
             video: PathConstants.warriorIIVideo,
             description: TextConstants.warriorDescription,
             steps: [
@@ -211,10 +212,10 @@ class DataConstants {
             ],
           ),
           ExerciseData(
+            id: "",
             title: TextConstants.hohuuhieu,
             seconds: TextConstants.hohuuhieuSeconds,
             image: PathConstants.hohuuhieuImage,
-            progress: 0.3,
             video: PathConstants.hohuuhieuVideo,
             description: TextConstants.hohuuhieuDescription,
             steps: [
@@ -224,10 +225,10 @@ class DataConstants {
             ],
           ),
           ExerciseData(
+            id: "",
             title: TextConstants.thochukychudong,
             seconds: TextConstants.thochukychudongSeconds,
             image: PathConstants.thochukychudongImage,
-            progress: 0.3,
             video: PathConstants.thochukychudongVideo,
             description: TextConstants.thochukychudongDescription,
             steps: [
@@ -237,20 +238,19 @@ class DataConstants {
             ],
           )
         ],
-        id: ''),
+        id: 'cardio'),
     WorkoutData(
+      color: Colors.black,
       title: TextConstants.armsTitle,
-      exercises: TextConstants.armsExercises,
-      seconds: TextConstants.armsSeconds,
       currentProgress: 1,
       progress: 20,
       image: PathConstants.arms,
       exerciseDataList: [
         ExerciseData(
+          id: "",
           title: TextConstants.nangvai,
           seconds: TextConstants.nangvaiSeconds,
           image: PathConstants.nangvaiImage,
-          progress: 0.99,
           video: PathConstants.nangvaiVideo,
           description: TextConstants.nangvaiDescription,
           steps: [
@@ -258,52 +258,52 @@ class DataConstants {
           ],
         ),
         ExerciseData(
+          id: "",
           title: TextConstants.gapduoikhuyutay,
           seconds: TextConstants.gapduoikhuyutaySeconds,
           image: PathConstants.gapduoikhuyutayImage,
-          progress: 0.6,
           video: PathConstants.gapduoikhuyutayVideo,
           description: TextConstants.gapduoikhuyutayDescription,
           steps: [TextConstants.gapduoikhuyutayStep1],
         ),
         ExerciseData(
+          id: "",
           title: TextConstants.gapxoaycochan,
           seconds: TextConstants.gapxoaycochanSeconds,
           image: PathConstants.gapxoaycochanImage,
-          progress: 0.8,
           video: PathConstants.gapxoaycochanVideo,
           description: TextConstants.gapxoaycochanDescription,
           steps: [TextConstants.gapxoaycochanStep1],
         ),
         ExerciseData(
+          id: "",
           title: TextConstants.coduoichan,
           seconds: TextConstants.coduoichanSeconds,
           image: PathConstants.coduoichanImage,
-          progress: 0.3,
           video: PathConstants.coduoichanVideo,
           description: TextConstants.coduoichanDescription,
           steps: [TextConstants.coduoichanStep1],
         ),
         ExerciseData(
+          id: "",
           title: TextConstants.dangchan,
           seconds: TextConstants.dangchanSeconds,
           image: PathConstants.dangchanImage,
-          progress: 0.3,
           video: PathConstants.dangchanVideo,
           description: TextConstants.dangchanDescription,
           steps: [TextConstants.dangchanStep1],
         ),
         ExerciseData(
+          id: "",
           title: TextConstants.nangchan,
           seconds: TextConstants.nangchanSeconds,
           image: PathConstants.nangchanImage,
-          progress: 0.3,
           video: PathConstants.nangchanVideo,
           description: TextConstants.nangchanDescription,
           steps: [TextConstants.nangchanStep1],
         ),
       ],
-      id: '',
+      id: 'arms',
     )
   ];
 

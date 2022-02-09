@@ -6,20 +6,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeStatistics extends StatelessWidget {
-  const HomeStatistics({Key? key}) : super(key: key);
+  const HomeStatistics({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<HomeBloc>(context);
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _createComletedWorkouts(context, bloc),
-          _createColumnStatistics(bloc),
-        ],
-      ),
+    return BlocConsumer<HomeBloc, HomeState>(
+      buildWhen: (_, currState) =>
+          currState is HomeInitial ||
+          currState is WorkoutsGotState ||
+          currState is HomeUserUpdateWorkoutsSate,
+      builder: (context, state) {
+        print("HOME STATS BUILD-----------");
+        final bloc = BlocProvider.of<HomeBloc>(context);
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _createComletedWorkouts(context, bloc),
+              _createColumnStatistics(bloc),
+            ],
+          ),
+        );
+      },
+      listenWhen: (_, currState) => true,
+      listener: (context, state) {},
     );
   }
 

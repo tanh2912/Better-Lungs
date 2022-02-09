@@ -134,7 +134,10 @@ class ExerciseCell extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 20),
           child: LinearPercentIndicator(
-            percent: currentExercise.progress,
+            percent:
+                currentExercise.currentSeconds / currentExercise.seconds > 1
+                    ? 1
+                    : currentExercise.currentSeconds / currentExercise.seconds,
             progressColor: ColorConstants.primaryColor,
             backgroundColor: ColorConstants.primaryColor.withOpacity(0.12),
             lineHeight: 6,

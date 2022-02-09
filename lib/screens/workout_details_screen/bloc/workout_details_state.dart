@@ -16,3 +16,5 @@ class WorkoutExerciseCellTappedState extends WorkoutDetailsState {
     required this.nextExercise,
   });
 }
+
+class WorkoutExcerciseUserPracticeState extends WorkoutDetailsState {}

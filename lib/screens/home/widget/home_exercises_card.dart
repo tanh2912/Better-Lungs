@@ -51,7 +51,7 @@ class WorkoutCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      "${workout.exercises} exercises",
+                      "${workout.totalExercises} exercises",
                       style: const TextStyle(
                         color: ColorConstants.white,
                         fontSize: 16,
@@ -60,7 +60,7 @@ class WorkoutCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "${workout.seconds} seconds",
+                      "${workout.totalSeconds()} seconds",
                       style: const TextStyle(
                         color: ColorConstants.white,
                         fontSize: 16,

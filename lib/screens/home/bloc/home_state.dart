@@ -28,3 +28,5 @@ class WorkoutsGotState extends HomeState {
     required this.workouts,
   });
 }
+
+class HomeUserUpdateWorkoutsSate extends HomeState {}

@@ -15,6 +15,9 @@ class AuthService {
     return user;
   }
 
+  static String? get getCurrentNameEmail =>
+      auth.currentUser?.email?.split("@")[0];
+
   static Future resetPassword(String email) async {
     try {
       await auth.sendPasswordResetEmail(email: email);

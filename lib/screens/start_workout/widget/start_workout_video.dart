@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:chewie/chewie.dart';
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/data/exercise_data.dart';
+import 'package:fitness_flutter/screens/workout_details_screen/bloc/workout_details_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player/video_player.dart';
 
 class StartWorkoutVideo extends StatefulWidget {
   final ExerciseData exercise;
@@ -30,16 +32,43 @@ class _StartWorkoutVideoState extends State<StartWorkoutVideo> {
   // late Future<void> _initializeVideoPlayerFuture;
   late bool isPlayButtonHidden = false;
   late ChewieController _chewieController;
-  Timer? timer;
-  Timer? videoTimer;
+  Timer? _debounce;
 
   // bool _isVideoPlaying = false;
+
+  _onSetNewCurrentSeconds(int value, WorkoutDetailsBloc bloc) {
+    if (value >= widget.exercise.seconds) {
+      bloc.add(WorkoutExerciseUserPracticeEvent(
+        exerciseData: widget.exercise,
+        currentSecond: value,
+      ));
+      _debounce?.cancel();
+      return;
+    }
+
+    if (widget.exercise.currentSeconds >= widget.exercise.seconds) {
+      return;
+    }
+    if (_debounce?.isActive ?? false) {
+      _debounce?.cancel();
+    }
+    _debounce = Timer(const Duration(milliseconds: 1000), () {
+      if (value > widget.exercise.currentSeconds) {
+        bloc.add(WorkoutExerciseUserPracticeEvent(
+          exerciseData: widget.exercise,
+          currentSecond: value,
+        ));
+      }
+    });
+  }
 
   @override
   void initState() {
     _controller = VideoPlayerController.asset(widget.exercise.video);
 
     _controller.initialize();
+
+    final wkBloc = BlocProvider.of<WorkoutDetailsBloc>(context);
 
     _chewieController = ChewieController(
         videoPlayerController: _controller,
@@ -50,6 +79,14 @@ class _StartWorkoutVideoState extends State<StartWorkoutVideo> {
         placeholder: const Center(child: CupertinoActivityIndicator()),
         materialProgressColors:
             ChewieProgressColors(playedColor: ColorConstants.primaryColor));
+    if (widget.exercise.currentSeconds < widget.exercise.seconds) {
+      _controller.addListener(() {
+        _controller.position.then((value) {
+          _onSetNewCurrentSeconds(value?.inSeconds ?? 0, wkBloc);
+        });
+      });
+    }
+
     super.initState();
   }
 

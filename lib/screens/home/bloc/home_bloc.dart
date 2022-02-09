@@ -1,33 +1,29 @@
 // ignore_for_file: avoid_print
 
+import 'dart:async';
+
+import 'package:bloc/bloc.dart';
 import 'package:fitness_flutter/core/const/data_constants.dart';
 import 'package:fitness_flutter/core/service/auth_service.dart';
 import 'package:fitness_flutter/core/service/data_service.dart';
 import 'package:fitness_flutter/core/service/user_storage_service.dart';
-import 'package:fitness_flutter/data/exercise_data.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
-import 'dart:async';
-
-import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial());
 
   List<WorkoutData> workouts = <WorkoutData>[];
-  List<ExerciseData> exercises = <ExerciseData>[];
-  int timeSent = 0;
 
   @override
   Stream<HomeState> mapEventToState(
     HomeEvent event,
   ) async* {
     if (event is HomeInitialEvent) {
-      workouts = await DataService.getWorkoutsForUser();
+      workouts = await DataService().getWorkoutsForUser();
       yield WorkoutsGotState(workouts: workouts);
     } else if (event is ReloadImageEvent) {
       String? photoURL = await UserStorageService.readSecureData('image');
@@ -41,6 +37,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } else if (event is ReloadDisplayNameEvent) {
       final displayName = await UserStorageService.readSecureData('name');
       yield ReloadDisplayNameState(displayName: displayName);
+    } else if (event is UserPracticeEvent) {
+      for (var i = 0; i < workouts.length; i++) {
+        if (workouts[i].id == event.workoutData.id) {
+          workouts[i] = event.workoutData;
+        }
+      }
+      yield HomeUserUpdateWorkoutsSate();
     }
   }
 
@@ -68,13 +71,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   int? getTimeSent() {
+    var timeSent = 0;
     for (final WorkoutData workout in workouts) {
-      exercises.addAll(workout.exerciseDataList);
+      for (final exs in workout.exerciseDataList) {
+        timeSent += exs.currentSeconds;
+      }
     }
-    final exercise = exercises.where((e) => e.progress == 1).toList();
-    for (var e in exercise) {
-      timeSent += e.seconds;
-    }
+    // final exercise =
+    //     exercises.where((e) => e.seconds == e.currentSeconds).toList();
+    // for (var e in exercise) {
+    //   timeSent += e.seconds;
+    // }
     return timeSent;
   }
 }

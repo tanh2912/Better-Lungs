@@ -8,3 +8,8 @@ class HomeInitialEvent extends HomeEvent {}
 class ReloadDisplayNameEvent extends HomeEvent {}
 
 class ReloadImageEvent extends HomeEvent {}
+
+class UserPracticeEvent extends HomeEvent {
+  final WorkoutData workoutData;
+  UserPracticeEvent({required this.workoutData});
+}

@@ -21,7 +21,7 @@ class WorkoutsBloc extends Bloc<WorkoutsEvent, WorkoutsState> {
     WorkoutsEvent event,
   ) async* {
     if (event is WorkoutsInitialEvent) {
-      GlobalConstants.workouts = await DataService.getWorkoutsForUser();
+      GlobalConstants.workouts = await DataService().getWorkoutsForUser();
       for (int i = 0; i < workouts.length; i++) {
         final workoutsUserIndex =
             GlobalConstants.workouts.indexWhere((w) => w.id == workouts[i].id);
