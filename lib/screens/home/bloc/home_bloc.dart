@@ -47,9 +47,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   int getProgressPercentage() {
-    var totalExs = 1;
+    var totalExs = 0;
     for (final wk in workouts) {
       totalExs += wk.totalExercises;
+    }
+    if (totalExs == 0) {
+      return 0;
     }
     return (getFinishedWorkouts() * 100 / totalExs).floor();
   }
