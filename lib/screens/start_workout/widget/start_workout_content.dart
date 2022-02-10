@@ -133,12 +133,15 @@ class StartWorkoutContent extends StatelessWidget {
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      TextConstants.nextExercise,
-                      style: TextStyle(
-                        color: ColorConstants.grey,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
+                    const Expanded(
+                      child: Text(
+                        TextConstants.nextExercise,
+                        style: TextStyle(
+                          color: ColorConstants.grey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 5),
@@ -146,7 +149,7 @@ class StartWorkoutContent extends StatelessWidget {
                       nextExercise?.title ?? "",
                       style: const TextStyle(
                         color: ColorConstants.textBlack,
-                        fontSize: 17,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
