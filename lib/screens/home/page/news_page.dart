@@ -16,7 +16,7 @@ class NewsPage extends StatefulWidget {
 }
 
 class NewsPageState extends State<NewsPage> {
-  static const String FEED_URL = 'https://vnexpress.net/rss/suc-khoe.rss';
+  static const String feedURL = 'https://vnexpress.net/rss/suc-khoe.rss';
   RssFeed? _feed;
   static const String placeholderImg = 'assets/icons/progress.png';
   GlobalKey<RefreshIndicatorState>? _refreshKey;
@@ -43,7 +43,7 @@ class NewsPageState extends State<NewsPage> {
   Future<RssFeed?> loadFeed() async {
     try {
       final client = http.Client();
-      final response = await client.get(Uri.parse(FEED_URL));
+      final response = await client.get(Uri.parse(feedURL));
       String jsonData = utf8.decode(response.bodyBytes);
       return RssFeed.parse(jsonData);
     } catch (e) {
@@ -141,9 +141,7 @@ class NewsPageState extends State<NewsPage> {
           )
         : RefreshIndicator(
             key: _refreshKey,
-            child: Expanded(
-              child: list(),
-            ),
+            child: list(),
             onRefresh: () => load(),
           );
   }

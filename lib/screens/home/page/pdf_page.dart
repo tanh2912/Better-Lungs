@@ -1,9 +1,10 @@
-import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:native_pdf_view/native_pdf_view.dart';
 
+import 'package:fitness_flutter/core/const/path_constants.dart';
+
 class PdfPage extends StatefulWidget {
-  const PdfPage(this.pdfUri);
+  const PdfPage(this.pdfUri, {Key? key}) : super(key: key);
 
   final String pdfUri;
 
@@ -16,10 +17,16 @@ class _PdfPageState extends State<PdfPage> {
 
   @override
   void initState() {
-    super.initState();
     pdfController = PdfController(
       document: PdfDocument.openAsset(widget.pdfUri),
     );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pdfController.dispose();
+    super.dispose();
   }
 
   @override

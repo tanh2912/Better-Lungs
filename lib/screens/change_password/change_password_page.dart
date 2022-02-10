@@ -61,9 +61,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             currState is ChangePasswordProgress ||
             currState is ChangePasswordSuccess,
         builder: (context, state) {
-          if (state is ChangePasswordProgress)
+          if (state is ChangePasswordProgress) {
             return Stack(
                 children: [_editAccountContent(context), FitnessLoading()]);
+          }
           if (state is ChangePasswordError) {
             WidgetsBinding.instance!.addPostFrameCallback((_) {
               ScaffoldMessenger.of(context)

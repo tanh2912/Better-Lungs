@@ -3,7 +3,7 @@
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
 import 'package:fitness_flutter/data/workout_data.dart';
-import 'package:fitness_flutter/screens/workouts/bloc/workouts_bloc.dart';
+import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
 import 'package:fitness_flutter/screens/workouts/widget/workout_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,9 +22,10 @@ class WorkoutContent extends StatelessWidget {
   }
 
   Widget _createHomeBody(BuildContext context) {
-    final bloc = BlocProvider.of<WorkoutsBloc>(context);
-    return BlocBuilder<WorkoutsBloc, WorkoutsState>(
-      buildWhen: (_, currState) => currState is ReloadWorkoutsState,
+    final bloc = BlocProvider.of<HomeBloc>(context);
+    return BlocBuilder<HomeBloc, HomeState>(
+      buildWhen: (_, currState) =>
+          currState is HomeInitial || currState is HomeUserUpdateWorkoutsSate,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.only(top: 50),

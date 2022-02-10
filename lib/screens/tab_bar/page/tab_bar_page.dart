@@ -1,6 +1,7 @@
 import 'package:fitness_flutter/core/const/color_constants.dart';
 import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:fitness_flutter/core/const/text_constants.dart';
+import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
 import 'package:fitness_flutter/screens/home/page/home_page.dart';
 import 'package:fitness_flutter/screens/home/page/news_page.dart';
 import 'package:fitness_flutter/screens/tab_bar/bloc/tab_bar_bloc.dart';
@@ -8,26 +9,34 @@ import 'package:fitness_flutter/screens/workouts/page/workouts_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../settings/settings_screen.dart';
+
 class TabBarPage extends StatelessWidget {
   const TabBarPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<TabBarBloc>(
-      create: (BuildContext context) => TabBarBloc(),
-      child: BlocConsumer<TabBarBloc, TabBarState>(
-        listener: (context, state) {},
-        buildWhen: (_, currState) =>
-            currState is TabBarInitial || currState is TabBarItemSelectedState,
-        builder: (context, state) {
-          final bloc = BlocProvider.of<TabBarBloc>(context);
-          return Scaffold(
-            body: _createBody(context, bloc.currentIndex),
-            bottomNavigationBar: _createdBottomTabBar(context),
-          );
-        },
-      ),
-    );
+    return BlocProvider(
+        create: (BuildContext context) => HomeBloc()
+          ..add(HomeInitialEvent())
+          ..add(ReloadDisplayNameEvent())
+          ..add(ReloadImageEvent()),
+        child: BlocProvider<TabBarBloc>(
+          create: (BuildContext context) => TabBarBloc(),
+          child: BlocConsumer<TabBarBloc, TabBarState>(
+            listener: (context, state) {},
+            buildWhen: (_, currState) =>
+                currState is TabBarInitial ||
+                currState is TabBarItemSelectedState,
+            builder: (context, state) {
+              final bloc = BlocProvider.of<TabBarBloc>(context);
+              return Scaffold(
+                body: _createBody(context, bloc.currentIndex),
+                bottomNavigationBar: _createdBottomTabBar(context),
+              );
+            },
+          ),
+        ));
   }
 
   Widget _createdBottomTabBar(BuildContext context) {
@@ -76,7 +85,7 @@ class TabBarPage extends StatelessWidget {
       const HomePage(),
       const WorkoutsPage(),
       const NewsPage(),
-      // const SettingsScreen()
+      const SettingsScreen()
       // Scaffold(
       //   body: Center(
       //     child: RawMaterialButton(

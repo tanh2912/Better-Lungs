@@ -33,8 +33,6 @@ class WorkoutDetailsBloc
         nextExercise: event.nextExercise,
       );
     } else if (event is WorkoutExerciseUserPracticeEvent) {
-      print(
-          "===========SOME THING WorkoutDetailsBloc CALL EVENT==============");
       for (final exs in workout.exerciseDataList) {
         if (exs.id == event.exerciseData.id) {
           exs.currentSeconds = event.currentSecond;

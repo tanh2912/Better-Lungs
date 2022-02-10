@@ -23,7 +23,7 @@ class DataService {
       if (result.data() != null && result.exists) {
         currentWorkouts = result.data() as Map<String, dynamic>;
         final workouts = List<WorkoutData>.from(DataConstants.workouts);
-        currentWorkouts.keys.forEach((key) {
+        for (var key in currentWorkouts.keys) {
           for (var i = 0; i < workouts.length; i++) {
             var isBreak = false;
             for (var j = 0; j < workouts[i].exerciseDataList.length; j++) {
@@ -38,7 +38,7 @@ class DataService {
               }
             }
           }
-        });
+        }
         return workouts;
       } else {
         return DataConstants.workouts;
@@ -52,8 +52,7 @@ class DataService {
     try {
       currentWorkouts.addAll(newActiveExs);
       await workouts.doc(currentNameEmail).set(currentWorkouts);
-    } catch (exp) {
-      print(exp);
-    }
+      // ignore: empty_catches
+    } catch (exp) {}
   }
 }

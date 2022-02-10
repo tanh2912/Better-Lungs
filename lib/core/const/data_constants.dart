@@ -32,8 +32,6 @@ class DataConstants {
     WorkoutData(
         color: ColorConstants.cardioColor,
         title: TextConstants.yogaTitle,
-        currentProgress: 10,
-        progress: 16,
         image: PathConstants.yoga,
         exerciseDataList: [
           ExerciseData(
@@ -103,8 +101,6 @@ class DataConstants {
     WorkoutData(
       color: ColorConstants.armsColor,
       title: TextConstants.fullBodyTitle,
-      currentProgress: 12,
-      progress: 14,
       image: PathConstants.fullBody,
       exerciseDataList: [
         ExerciseData(
@@ -172,8 +168,6 @@ class DataConstants {
     WorkoutData(
         color: Colors.black,
         title: TextConstants.cardioTitle,
-        currentProgress: 10,
-        progress: 16,
         image: PathConstants.cardio,
         exerciseDataList: [
           ExerciseData(
@@ -242,8 +236,6 @@ class DataConstants {
     WorkoutData(
       color: Colors.black,
       title: TextConstants.armsTitle,
-      currentProgress: 1,
-      progress: 20,
       image: PathConstants.arms,
       exerciseDataList: [
         ExerciseData(

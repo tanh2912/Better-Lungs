@@ -1,11 +1,12 @@
 import 'dart:io';
 
-import 'package:fitness_flutter/core/const/path_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import 'package:fitness_flutter/core/const/path_constants.dart';
+
 class WebPage extends StatefulWidget {
-  const WebPage(this.webUrl);
+  const WebPage(this.webUrl, {Key? key}) : super(key: key);
 
   final String webUrl;
 

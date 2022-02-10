@@ -78,8 +78,8 @@ class HomeContent extends StatelessWidget {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => PdfPage(pdf1)));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const PdfPage(pdf1)));
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -106,8 +106,8 @@ class HomeContent extends StatelessWidget {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => PdfPage(pdf2)));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const PdfPage(pdf2)));
                     },
                     child: Container(
                       decoration: BoxDecoration(

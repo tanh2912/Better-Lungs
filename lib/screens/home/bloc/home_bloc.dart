@@ -47,43 +47,33 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   int getProgressPercentage() {
-    var totalTime = 0;
-    for (var i = 0; i < workouts.length; i++) {
-      totalTime += workouts[i].totalSeconds();
+    var totalTime = 1;
+    for (final wk in workouts) {
+      totalTime += wk.totalSeconds();
     }
     return (getTimeSent() * 100 / totalTime).floor();
   }
 
   int getFinishedWorkouts() {
     var totalFinish = 0;
-    for (var i = 0; i < workouts.length; i++) {
-      for (var j = 0; j < workouts[i].exerciseDataList.length; j++) {
-        if (workouts[i].exerciseDataList[j].isFisnished) {
-          totalFinish += 1;
-        }
-      }
+    for (final wk in workouts) {
+      totalFinish += wk.totalFinished;
     }
     return totalFinish;
   }
 
   int getInProgressWorkouts() {
     var totalInProgress = 0;
-    for (var i = 0; i < workouts.length; i++) {
-      for (var j = 0; j < workouts[i].exerciseDataList.length; j++) {
-        if (workouts[i].exerciseDataList[j].isProgress) {
-          totalInProgress += 1;
-        }
-      }
+    for (final wk in workouts) {
+      totalInProgress += wk.totalInProgress;
     }
     return totalInProgress;
   }
 
   int getTimeSent() {
     var timeSent = 0;
-    for (final WorkoutData workout in workouts) {
-      for (final exs in workout.exerciseDataList) {
-        timeSent += exs.currentSeconds;
-      }
+    for (final wk in workouts) {
+      timeSent += wk.totalSecondsInprogress();
     }
     return timeSent;
   }

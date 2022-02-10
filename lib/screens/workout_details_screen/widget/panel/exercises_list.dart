@@ -19,8 +19,11 @@ class ExercisesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.only(top: 10),
-      itemCount: exercises.length,
+      itemCount: exercises.length + 1,
       itemBuilder: (context, index) {
+        if (index == exercises.length) {
+          return const SizedBox(height: 64);
+        }
         return ExerciseCell(
           currentExercise: exercises[index],
           nextExercise:

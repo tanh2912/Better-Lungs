@@ -18,7 +18,6 @@ class HomeStatistics extends StatelessWidget {
           currState is WorkoutsGotState ||
           currState is HomeUserUpdateWorkoutsSate,
       builder: (context, state) {
-        print("HOME STATS BUILD-----------");
         final bloc = BlocProvider.of<HomeBloc>(context);
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
