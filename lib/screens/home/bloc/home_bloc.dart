@@ -3,7 +3,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:fitness_flutter/core/const/data_constants.dart';
 import 'package:fitness_flutter/core/service/auth_service.dart';
 import 'package:fitness_flutter/core/service/data_service.dart';
 import 'package:fitness_flutter/core/service/user_storage_service.dart';
@@ -48,40 +47,44 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   int getProgressPercentage() {
-    final completed = workouts
-        .where(
-            (w) => (w.currentProgress) > 0 && w.currentProgress == w.progress)
-        .toList();
-    final percent01 =
-        completed.length.toDouble() / DataConstants.workouts.length.toDouble();
-    final percent = (percent01 * 100).toInt();
-    return percent;
+    var totalTime = 0;
+    for (var i = 0; i < workouts.length; i++) {
+      totalTime += workouts[i].totalSeconds();
+    }
+    return (getTimeSent() * 100 / totalTime).floor();
   }
 
-  int? getFinishedWorkouts() {
-    final completedWorkouts =
-        workouts.where((w) => w.currentProgress == w.progress).toList();
-    return completedWorkouts.length;
+  int getFinishedWorkouts() {
+    var totalFinish = 0;
+    for (var i = 0; i < workouts.length; i++) {
+      for (var j = 0; j < workouts[i].exerciseDataList.length; j++) {
+        if (workouts[i].exerciseDataList[j].isFisnished) {
+          totalFinish += 1;
+        }
+      }
+    }
+    return totalFinish;
   }
 
-  int? getInProgressWorkouts() {
-    final completedWorkouts = workouts.where(
-        (w) => (w.currentProgress) > 0 && w.currentProgress != w.progress);
-    return completedWorkouts.length;
+  int getInProgressWorkouts() {
+    var totalInProgress = 0;
+    for (var i = 0; i < workouts.length; i++) {
+      for (var j = 0; j < workouts[i].exerciseDataList.length; j++) {
+        if (workouts[i].exerciseDataList[j].isProgress) {
+          totalInProgress += 1;
+        }
+      }
+    }
+    return totalInProgress;
   }
 
-  int? getTimeSent() {
+  int getTimeSent() {
     var timeSent = 0;
     for (final WorkoutData workout in workouts) {
       for (final exs in workout.exerciseDataList) {
         timeSent += exs.currentSeconds;
       }
     }
-    // final exercise =
-    //     exercises.where((e) => e.seconds == e.currentSeconds).toList();
-    // for (var e in exercise) {
-    //   timeSent += e.seconds;
-    // }
     return timeSent;
   }
 }

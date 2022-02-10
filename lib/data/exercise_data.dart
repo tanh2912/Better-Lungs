@@ -23,6 +23,10 @@ class ExerciseData {
 
   double get progress => currentSeconds / seconds;
 
+  bool get isFisnished => currentSeconds >= seconds;
+
+  bool get isProgress => currentSeconds > 0 && currentSeconds < seconds;
+
   ExerciseData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];

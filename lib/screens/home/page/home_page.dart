@@ -22,7 +22,6 @@ class HomePage extends StatelessWidget {
             currState is WorkoutsGotState ||
             currState is HomeUserUpdateWorkoutsSate,
         builder: (context, state) {
-          print("HOME BUILD--------------");
           final bloc = BlocProvider.of<HomeBloc>(context);
           if (state is HomeInitial) {
             bloc.add(HomeInitialEvent());

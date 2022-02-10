@@ -106,14 +106,14 @@ class HomeStatistics extends StatelessWidget {
         DataWorkouts(
           icon: PathConstants.inProgress,
           title: TextConstants.inProgress,
-          count: bloc.getInProgressWorkouts() ?? 0,
+          count: bloc.getInProgressWorkouts(),
           text: TextConstants.workouts,
         ),
         const SizedBox(height: 20),
         DataWorkouts(
           icon: PathConstants.timeSent,
           title: TextConstants.timeSent,
-          count: bloc.getTimeSent() ?? 0,
+          count: bloc.getTimeSent(),
           text: TextConstants.seconds,
         ),
       ],
@@ -177,7 +177,7 @@ class DataWorkouts extends StatelessWidget {
           Row(
             children: [
               Text(
-                count.toString(), ////////
+                count.toString(),
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,

@@ -26,12 +26,12 @@ class WorkoutData {
       ? exerciseDataList.length.toString()
       : "0${exerciseDataList.length}";
 
-  String totalSeconds() {
+  int totalSeconds() {
     var totalTime = 0;
     exerciseDataList.forEach((element) {
       totalTime += element.seconds;
     });
-    return totalTime.toString();
+    return totalTime;
   }
 
   WorkoutData.fromJson(Map<String, dynamic> json) {
