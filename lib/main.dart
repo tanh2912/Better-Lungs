@@ -10,10 +10,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() async {
+  // Ensure Widget bidding initial
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Support Orientation for device
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+  // Init Firebase
   await Firebase.initializeApp();
+
+  // Init Notification Local
+  await NotificationService.instance.init();
   runApp(MyApp());
 }
 
@@ -25,11 +33,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      NotificationService.flutterLocalNotificationsPlugin;
+  @override
+  void initState() {
+    NotificationService.instance.configure(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 5)).then(
+        (value) => NotificationService.instance.showNotificationWithNoBody());
     final isLoggedIn = FirebaseAuth.instance.currentUser != null;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
